@@ -1,6 +1,5 @@
-// src/components/Login.js
 import React, { useState } from 'react';
-import api from '../../api';
+import api from '../../api'; 
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -29,8 +28,8 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-      <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+      <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+      <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
       <button type="submit">Login</button>
     </form>
   );
