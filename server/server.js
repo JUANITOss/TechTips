@@ -61,7 +61,7 @@ app.use(session({
 }));
 
 // Ruta protegida: perfil del usuario
-function verificarAutenticacion(req, res, next) {
+function verifAuth(req, res, next) {
   if (req.session.userId) {
       req.email = req.session.email; // Pass email to the request object
       next();
@@ -70,7 +70,7 @@ function verificarAutenticacion(req, res, next) {
   }
 };
 
-app.get('/verif', verificarAutenticacion, (req, res) => {
+app.get('/verif', verifAuth, (req, res) => {
     res.status(200).send(`ID del usuario: ${req.session.userId}, EMAIL: ${req.session.email}`);
 });
 
