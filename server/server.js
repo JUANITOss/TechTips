@@ -4,6 +4,7 @@ const cors = require('cors');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 // Init app
 const app = express();
@@ -35,10 +36,13 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// Manejo de archivos en /uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Conexion MongoDB
 const connectMongoDB = async () => {
     try {
-      await mongoose.connect('mongodb://localhost:27017/tienda');
+      await mongoose.connect('mongodb://localhost:27017/techtips');
       console.log('Conectado a MongoDB');
   
     } catch (error) {
@@ -58,15 +62,16 @@ app.use(session({
 
 // Ruta protegida: perfil del usuario
 function verificarAutenticacion(req, res, next) {
-    if (req.session.userId) {
+  if (req.session.userId) {
+      req.email = req.session.email; // Pass email to the request object
       next();
-    } else {
+  } else {
       res.status(401).send('No autenticado');
-    }
+  }
 };
 
-app.get('/perfil', verificarAutenticacion, (req, res) => {
-    res.status(200).send(`ID del usuario: ${req.session.userId}`);
+app.get('/verif', verificarAutenticacion, (req, res) => {
+    res.status(200).send(`ID del usuario: ${req.session.userId}, EMAIL: ${req.session.email}`);
 });
 
 // Ruta de prueba
@@ -77,9 +82,10 @@ app.get('/api/test', (req, res) => {
 // USTEDES MODIFICAN SOLO URLS Y RUTAS !!!!
 
 // URLS (SINTAXIS GENERAL: const rutaRoutes = require('./routes/ruta');)
+const authRoutes = require('./routes/auth');
 
 // RUTAS (SINTAXIS GENERAL: app.use('/ruta', handleOptions, rutaRoutes);)
-
+app.use('/auth', handleOptions, authRoutes);
 
 // Iniciar el servidor
 const PORT = 5000;
