@@ -5,11 +5,12 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const verifAuth = require('./middleware/authMiddleware').default;
 
 // Init app
 const app = express();
 
-// Middleware cors
+// Middleware cors (sync con axios en cliente)
 app.use(cors({
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -18,7 +19,7 @@ app.use(cors({
     optionsSuccessStatus: 204 // Retorna 204 No Content en las respuestas a los métodos que solicitan el successStatus  
 }));
 
-// Middleware HTTP condicionales
+// Middleware HTTP
 const handleOptions = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
@@ -36,7 +37,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// Manejo de archivos en /uploads
+// Manejo de archivos para /uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Conexion MongoDB
@@ -52,7 +53,7 @@ const connectMongoDB = async () => {
 };
 connectMongoDB();
 
-// Sesiones
+// Manejo de express sessions
 app.use(session({
     secret: "password",
     resave: false,
@@ -60,32 +61,22 @@ app.use(session({
     cookie: { secure: false},
 }));
 
-// Ruta protegida: perfil del usuario
-function verifAuth(req, res, next) {
-  if (req.session.userId) {
-      req.email = req.session.email; // Pass email to the request object
-      next();
-  } else {
-      res.status(401).send('No autenticado');
-  }
-};
-
-app.get('/verif', verifAuth, (req, res) => {
+// Ruta de testeo de verificacion
+app.get('/verifyUser', verifAuth, (req, res) => {
     res.status(200).send(`ID del usuario: ${req.session.userId}, EMAIL: ${req.session.email}`);
 });
 
-// Ruta de prueba
-app.get('/api/test', (req, res) => {
-    res.json({ message: 'Backend conectado correctamente' });
-});
+// Routing del proyecto
 
 // USTEDES MODIFICAN SOLO URLS Y RUTAS !!!!
 
 // URLS (SINTAXIS GENERAL: const rutaRoutes = require('./routes/ruta');)
 const authRoutes = require('./routes/auth');
+const postRoutes = require('./routes/posts');
 
 // RUTAS (SINTAXIS GENERAL: app.use('/ruta', handleOptions, rutaRoutes);)
 app.use('/auth', handleOptions, authRoutes);
+app.use('/posts', handleOptions, postRoutes);
 
 // Iniciar el servidor
 const PORT = 5000;
