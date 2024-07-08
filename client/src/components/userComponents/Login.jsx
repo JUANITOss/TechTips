@@ -21,6 +21,11 @@ const Login = () => {
     try {
       const response = await api.post('/auth/login', formData);
       console.log(response.data);
+
+      if (response.status === 200) {
+        window.location="/homePage";
+      }
+
     } catch (error) {
       console.error('Error logging in', error);
     }

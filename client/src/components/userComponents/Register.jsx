@@ -51,8 +51,13 @@ const Register = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setSuccessMessage('User registered successfully!');
-      console.log(response.data);
+      
+      if (response.status === 201) {
+        setSuccessMessage('User registered successfully!');
+        console.log(response.data); 
+        window.location="/homePage";
+      }
+
     } catch (error) {
       setErrorMessage('Error registering user');
       console.error('Error registering user', error);
