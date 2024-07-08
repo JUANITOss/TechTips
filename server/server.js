@@ -5,7 +5,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-const verifAuth = require('./middleware/authMiddleware').default;
+const verifAuth = require('./middleware/authMiddleware');
 
 // Init app
 const app = express();

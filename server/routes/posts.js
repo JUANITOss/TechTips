@@ -1,9 +1,14 @@
-// routes/posts.js
 const express = require('express');
 const mongoose = require('mongoose');
 const Post = require('../models/Post');
 const verifyAuth = require('../middleware/authMiddleware');
 const router = express.Router();
+
+// Obtener todos los posts
+router.get('/getPosts', async (req, res) => {
+  const posts = await Post.find();
+  res.send(posts);
+});
 
 // Crear un post
 router.post('/create', verifyAuth, async (req, res) => {
@@ -24,24 +29,29 @@ router.post('/create', verifyAuth, async (req, res) => {
 });
 
 // Editar un post
-router.put('/edit/:postId', verifyAuth, async (req, res) => {
-  const { postId } = req.params;
-  const { title, content } = req.body;
-  const userId = req.session.userId;
+router.put('/edit/:_id', verifyAuth, async (req, res) => {
 
   try {
-    const post = await Post.findById(postId);
+    const post = await Post.findOne({ _id: req.params._id });
+    
     if (!post) {
       return res.status(404).json({ message: 'Post no encontrado' });
     }
+  
+    const userId = req.session.userId;
+  
     if (!post.createdBy.equals(userId)) {
       return res.status(403).json({ message: 'No autorizado' });
     }
 
-    post.title = title;
+    const { title, content } = req.body;
     post.content = content;
+
+    post.title = title;
+    
     await post.save();
     res.status(200).json(post);
+
   } catch (error) {
     res.status(500).json({ message: 'Error editando el post', error });
   }
@@ -53,15 +63,12 @@ router.delete('/delete/:postId', verifyAuth, async (req, res) => {
   const userId = req.session.userId;
 
   try {
-    const post = await Post.findById(postId);
-    if (!post) {
-      return res.status(404).json({ message: 'Post no encontrado' });
-    }
+    const post = await Post.findByIdAndDelete(postId);
+
     if (!post.createdBy.equals(userId)) {
       return res.status(403).json({ message: 'No autorizado' });
     }
 
-    await post.remove();
     res.status(200).json({ message: 'Post borrado exitosamente' });
   } catch (error) {
     res.status(500).json({ message: 'Error borrando el post', error });

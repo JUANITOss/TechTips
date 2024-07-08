@@ -7,6 +7,5 @@ function verifyAuth(req, res, next) {
     }
 };
 
-export default verifyAuth;
-
+module.exports = verifyAuth;
 // module.exports = verifyAuth; (PROBAR EN CASO DE ERRORES) 
