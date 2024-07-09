@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post('/auth/login', formData);
+      const response = await api.post('/user/login', formData);
       console.log(response.data);
 
       if (response.status === 200) {

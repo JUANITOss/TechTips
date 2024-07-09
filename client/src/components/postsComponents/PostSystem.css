@@ -1,25 +1,32 @@
-/* Estilo general */
-body {
-    background: rgb(44, 48, 61);
-    margin: 0;
-    font-family: Arial, sans-serif;
+body{
+    padding: 30px;
 }
 
 /* Estilo de la barra de navegación */
-.navbar {
-    background-color: #ffffff;
-    color: #000000;
+.navbarPost {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #333;
     padding: 10px 20px;
-    border-bottom: 1px solid #000000; /* Borde negro en la parte inferior */
+    color: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
 }
 
-.navbar a {
-    color: #000000;
+.navbarPost a {
+    color: #fff;
     text-decoration: none;
     font-size: 20px;
+}
+
+/* Ajuste de margen para evitar que el contenido se esconda detrás de la navbar */
+.page-content {
+    margin-top: 100px;
+    padding-top: 400px; /* Ajustar según la altura de la navbar */
 }
 
 /* Estilo para el botón "Create New Post" */
@@ -31,9 +38,12 @@ body {
     cursor: pointer;
     border-radius: 5px;
     font-size: 14px;
-    margin: 20px auto; /* Margen en la parte superior y centrado */
+    margin: 20px auto; /* Margen superior centrado */
     display: block; /* Convertir en bloque para centrar */
     transition: background-color 0.3s ease;
+    max-width: 200px; /* Ancho máximo */
+    width: calc(100% - 40px); /* Ancho 100% menos el padding de 20px a cada lado */
+    position: relative; /* Asegurar que no quede oculto */
 }
 
 .create-post-button:hover {
