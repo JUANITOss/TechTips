@@ -16,7 +16,7 @@ const PostSystem = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await api.get('/posts/getPosts');
+                const response = await api.get('/post/getPosts');
                 setPosts(response.data.map(post => ({
                     ...post,
                     userScore: post.userScore || 0
@@ -28,7 +28,7 @@ const PostSystem = () => {
 
         const fetchUserData = async () => {
             try {
-                const response = await api.get('/auth/currentUser');
+                const response = await api.get('/user/currentUser');
                 setUserId(response.data.user._id);
             } catch (error) {
                 console.error('Error fetching user data', error);
@@ -41,7 +41,7 @@ const PostSystem = () => {
 
     const handleCreatePost = async (formData) => {
         try {
-            const response = await api.post('/posts/create', formData);
+            const response = await api.post('/post/create', formData);
             setPosts([...posts, response.data]);
             setShowCreateForm(false);
         } catch (error) {
@@ -58,7 +58,7 @@ const PostSystem = () => {
 
     const handleEditPost = async (formData) => {
         try {
-            const response = await api.put(`/posts/edit/${editingPost._id}`, formData);
+            const response = await api.put(`/post/edit/${editingPost._id}`, formData);
             setPosts(posts.map(p => (p._id === editingPost._id ? { ...p, ...response.data } : p)));
             setEditingPost(null);
             setEditTitle('');
@@ -71,7 +71,7 @@ const PostSystem = () => {
 
     const handleDeletePost = async (postId) => {
         try {
-            await api.delete(`/posts/delete/${postId}`);
+            await api.delete(`/post/delete/${postId}`);
             setPosts(posts.filter(post => post._id !== postId));
         } catch (error) {
             console.error('Error deleting post', error);
@@ -80,7 +80,7 @@ const PostSystem = () => {
 
     const handleScorePost = async (postId, score) => {
         try {
-            const response = await api.post(`/posts/${postId}/score`, { score });
+            const response = await api.post(`/post/${postId}/score`, { score });
             setPosts(posts.map(post => {
                 if (post._id === postId) {
                     return {
@@ -98,15 +98,12 @@ const PostSystem = () => {
 
     return (
         <div className="post-system-container">
-            <nav className="navbar">
+            <nav className="navbarPost">
                 <div className="navbar-left">
-                    <a href="/homePage">←</a> {/* Flecha para volver a HomePage */}
+                    <a href="/homePage">←</a>
                 </div>
                 <div className="navbar-center">
-                    <span>TechTips</span> {/* Título centrado */}
-                </div>
-                <div className="navbar-right">
-                    {/* Puedes agregar más elementos en la parte derecha si es necesario */}
+                    <span>TechTips</span>
                 </div>
             </nav>
 

@@ -1,0 +1,20 @@
+.navbarAuth {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #3a3a3a;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-title {
+    margin: 0;
+    padding-right: 30px;
+    font-size: 24px;
+}

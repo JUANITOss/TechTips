@@ -1,4 +1,3 @@
-// routes/auth.js
 const express = require('express');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
@@ -7,7 +6,7 @@ const path = require('path');
 
 const router = express.Router();
 
-// Multer configurado para uploads de archivos (PFP)
+// Multer for files (PFP)
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -89,24 +88,78 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Obtener usuario en sesion
+// GetCurrentUser
 router.get('/currentUser', async (req, res) => {
     try {
         if (!req.session.userId) {
             return res.status(401).json({ message: 'User not authenticated' });
         }
 
-        const user = {
-            _id: req.session.userId,
-            email: req.session.email,
-            username: req.session.username,
-            profilePicture: req.session.profilePicture,
-            phoneNumber: req.session.phoneNumber
-        };
-
+        const user = await User.findById(req.session.userId).select('-password');
         res.status(200).json({ user });
     } catch (error) {
         res.status(500).json({ message: 'Error fetching user data', error });
+    }
+});
+
+// Update user profile information
+router.put('/updateProfile', async (req, res) => {
+    const { username, password, name, surname, phoneNumber } = req.body;
+
+    try {
+        const user = await User.findById(req.session.userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        if (username) user.username = username;
+        if (password) user.password = await bcrypt.hash(password, 10);
+        if (name) user.name = name;
+        if (surname) user.surname = surname;
+        if (phoneNumber) user.phoneNumber = phoneNumber;
+
+        await user.save();
+        res.status(200).json({ message: 'Profile updated successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating profile', error });
+    }
+});
+
+// Update pfp
+router.put('/updateProfilePicture', upload.single('profilePicture'), async (req, res) => {
+    const profilePicture = req.file ? req.file.filename : null;
+
+    try {
+        const user = await User.findById(req.session.userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        if (profilePicture) user.profilePicture = profilePicture;
+
+        await user.save();
+        res.status(200).json({ message: 'Profile picture updated successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating profile picture', error });
+    }
+});
+
+// Update subscription status
+router.put('/updateSubscription', async (req, res) => {
+    const { subscription } = req.body;
+
+    try {
+        const user = await User.findById(req.session.userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        user.subscription = subscription;
+
+        await user.save();
+        res.status(200).json({ message: 'Subscription status updated successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating subscription status', error });
     }
 });
 

@@ -71,12 +71,12 @@ app.get('/verifyUser', verifAuth, (req, res) => {
 // USTEDES MODIFICAN SOLO URLS Y RUTAS !!!!
 
 // URLS (SINTAXIS GENERAL: const rutaRoutes = require('./routes/ruta');)
-const authRoutes = require('./routes/auth');
-const postRoutes = require('./routes/posts');
+const userRoutes = require('./routes/user');
+const postRoutes = require('./routes/post');
 
 // RUTAS (SINTAXIS GENERAL: app.use('/ruta', handleOptions, rutaRoutes);)
-app.use('/auth', handleOptions, authRoutes);
-app.use('/posts', handleOptions, postRoutes);
+app.use('/user', handleOptions, userRoutes);
+app.use('/post', handleOptions, postRoutes);
 
 // Iniciar el servidor
 const PORT = 5000;
