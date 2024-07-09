@@ -8,4 +8,3 @@ function verifyAuth(req, res, next) {
 };
 
 module.exports = verifyAuth;
-// module.exports = verifyAuth; (PROBAR EN CASO DE ERRORES) 

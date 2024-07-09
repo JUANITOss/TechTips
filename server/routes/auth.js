@@ -110,6 +110,4 @@ router.get('/currentUser', async (req, res) => {
     }
 });
 
-
-
 module.exports = router;

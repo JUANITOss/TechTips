@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Post = require('../models/Post');
+const User = require('../models/User');
 const verifyAuth = require('../middleware/authMiddleware');
 const router = express.Router();
 
@@ -26,17 +27,27 @@ router.post('/create', verifyAuth, async (req, res) => {
   const userId = req.session.userId;
 
   try {
-    const newPost = new Post({
-      title,
-      content,
-      createdBy: userId,
-    });
-    await newPost.save();
-    res.status(201).json(newPost);
+      const user = await User.findOne({ _id: userId });
+
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      const newPost = new Post({
+          title,
+          content,
+          createdBy: userId,
+          creatorUsername: user.username,
+          creatorProfilePicture: user.profilePicture,
+      });
+
+      await newPost.save();
+      res.status(201).json(newPost);
   } catch (error) {
-    res.status(500).json({ message: 'Error creando el post', error });
+      res.status(500).json({ message: 'Error creando el post', error });
   }
 });
+
 
 // Editar un post
 router.put('/edit/:_id', verifyAuth, async (req, res) => {

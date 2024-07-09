@@ -18,6 +18,13 @@ const postSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  creatorUsername: {
+    type: String,
+    required: true,
+  },
+  creatorProfilePicture: {
+    type: String, 
+  },
   scores: [
     {
       userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

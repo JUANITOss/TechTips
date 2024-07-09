@@ -1,0 +1,141 @@
+/* Estilo general */
+body {
+    background: rgb(44, 48, 61);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo de la barra de navegación */
+.navbar {
+    background-color: #ffffff;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #000000; /* Borde negro en la parte inferior */
+}
+
+.navbar a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Estilo para el botón "Create New Post" */
+.create-post-button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000; /* Borde negro */
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 20px auto; /* Margen en la parte superior y centrado */
+    display: block; /* Convertir en bloque para centrar */
+    transition: background-color 0.3s ease;
+}
+
+.create-post-button:hover {
+    background-color: #f0f0f0; /* Cambio de color al pasar el mouse */
+}
+
+/* Tarjeta de post */
+.post-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra tenue */
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 600px; /* Ancho máximo de la tarjeta */
+    margin: 20px auto; /* Centrar horizontalmente y dar margen */
+}
+
+/* Header del post */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Imagen de perfil */
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* Nombre de usuario */
+.creator-username {
+    font-weight: bold;
+}
+
+/* Contenido del post */
+.post-content {
+    margin-top: 10px;
+}
+
+/* Botones minimalistas */
+.button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el botón Cancel */
+.cancel-button {
+    background-color: #dc3545;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+/* Formulario de edición */
+.edit-modal {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.edit-modal h2 {
+    margin-bottom: 10px;
+}
+
+/* Estrellas de calificación */
+.star-rating {
+    margin-top: 5px;
+}
+
+/* Estilo para el input del formulario */
+.input-field {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+}
