@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api';
 import PostForm from './PostForm';
+import StarRating from './StarRating';
 
 const PostSystem = () => {
   const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
-  const [showEditModal, setShowEditModal] = useState(false); // Estado para mostrar/ocultar el modal de edición
-  const [showCreateForm, setShowCreateForm] = useState(false); // Estado para mostrar/ocultar el formulario de creación
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [userId, setUserId] = useState(null); 
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const response = await api.get('/posts/getPosts');
-        setPosts(response.data);
+        setPosts(response.data.map(post => ({
+          ...post,
+          userScore: post.userScore || 0 
+        })));
       } catch (error) {
         console.error('Error fetching posts', error);
       }
     };
 
+    const fetchUserData = async () => {
+      try {
+        const response = await api.get('/auth/currentUser');
+        setUserId(response.data.user._id); 
+      } catch (error) {
+        console.error('Error fetching user data', error);
+      }
+    };
+
     fetchPosts();
+    fetchUserData();
   }, []);
 
   const handleCreatePost = async (formData) => {
     try {
       const response = await api.post('/posts/create', formData);
       setPosts([...posts, response.data]);
-      setShowCreateForm(false); // Ocultar el formulario después de crear el post
+      setShowCreateForm(false);
     } catch (error) {
       console.error('Error creating post', error);
     }
@@ -37,17 +52,17 @@ const PostSystem = () => {
     setEditingPost(post);
     setEditTitle(post.title);
     setEditContent(post.content);
-    setShowEditModal(true); // Abrir el modal al hacer clic en Edit
+    setShowEditModal(true);
   };
 
   const handleEditPost = async (formData) => {
     try {
       const response = await api.put(`/posts/edit/${editingPost._id}`, formData);
-      setPosts(posts.map(post => (post._id === editingPost._id ? response.data : post)));
+      setPosts(posts.map(p => (p._id === editingPost._id ? { ...p, ...response.data } : p)));
       setEditingPost(null);
       setEditTitle('');
       setEditContent('');
-      setShowEditModal(false); // Cerrar el modal después de editar
+      setShowEditModal(false);
     } catch (error) {
       console.error('Error editing post', error);
     }
@@ -65,7 +80,16 @@ const PostSystem = () => {
   const handleScorePost = async (postId, score) => {
     try {
       const response = await api.post(`/posts/${postId}/score`, { score });
-      setPosts(posts.map(post => (post._id === postId ? response.data : post)));
+      setPosts(posts.map(post => {
+        if (post._id === postId) {
+          return {
+            ...post,
+            averageScore: response.data.averageScore,
+            userScore: response.data.userScore
+          };
+        }
+        return post;
+      }));
     } catch (error) {
       console.error('Error scoring post', error);
     }
@@ -73,12 +97,10 @@ const PostSystem = () => {
 
   return (
     <div>
-      {/* Botón para mostrar/ocultar formulario de creación */}
       <button onClick={() => setShowCreateForm(!showCreateForm)}>
         {showCreateForm ? 'Cancel' : 'Create New Post'}
       </button>
 
-      {/* Formulario para crear un nuevo post */}
       {showCreateForm && (
         <PostForm
           onSubmit={handleCreatePost}
@@ -89,7 +111,6 @@ const PostSystem = () => {
         />
       )}
 
-      {/* Modal para editar post */}
       {showEditModal && (
         <div className="edit-modal">
           <h2>Edit Post</h2>
@@ -105,21 +126,31 @@ const PostSystem = () => {
         </div>
       )}
 
-      {/* Listado de posts */}
       {posts.map(post => (
         <div key={post._id}>
           <h2>{post.title}</h2>
           <p>{post.content}</p>
-          <p>Average Score: {post.averageScore}</p>
-          <button onClick={() => handleEditClick(post)}>Edit</button>
-          <button onClick={() => handleDeletePost(post._id)}>Delete</button>
-          <input
-            type="number"
-            min="1"
-            max="5"
-            onChange={(e) => handleScorePost(post._id, parseInt(e.target.value))}
-            placeholder="Score"
-          />
+          <div>
+            Average Score:
+            <StarRating
+              rating={post.averageScore}
+              disabled
+            />
+          </div>
+          <div>
+            Your Score:
+            <StarRating
+              rating={post.userScore}
+              onRate={(score) => handleScorePost(post._id, score)}
+              disabled={editingPost !== null}
+            />
+          </div>
+          {userId && post.createdBy === userId && ( // Comprueba si el usuario actual es el creador del post
+            <div>
+              <button onClick={() => handleEditClick(post)}>Edit</button>
+              <button onClick={() => handleDeletePost(post._id)}>Delete</button>
+            </div>
+          )}
         </div>
       ))}
     </div>

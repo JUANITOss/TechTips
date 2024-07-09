@@ -32,7 +32,6 @@ const upload = multer({
     }
 });
 
-
 // Register
 router.post('/register', upload.single('profilePicture'), async (req, res) => {
     const { email, username, password, name, surname, phoneNumber} = req.body;
@@ -89,5 +88,28 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ message: 'Error logging in', error });
     }
 });
+
+// Obtener usuario en sesion
+router.get('/currentUser', async (req, res) => {
+    try {
+        if (!req.session.userId) {
+            return res.status(401).json({ message: 'User not authenticated' });
+        }
+
+        const user = {
+            _id: req.session.userId,
+            email: req.session.email,
+            username: req.session.username,
+            profilePicture: req.session.profilePicture,
+            phoneNumber: req.session.phoneNumber
+        };
+
+        res.status(200).json({ user });
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching user data', error });
+    }
+});
+
+
 
 module.exports = router;
