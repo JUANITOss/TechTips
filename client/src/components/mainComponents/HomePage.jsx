@@ -46,25 +46,32 @@ const HomePage = () => {
                         <div className="section-button">
                             <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
                             <h2>Foro</h2>
-                            
                         </div>
                     </Link>
+                    <Link to="/FAQ" className="no-underline">
                     <div className="section-button">
                         <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
-                        <h2>Preguntas Frecuentes (Próximamente)</h2>
+                        <h2>Preguntas Frecuentes</h2>
                     </div>
+                    </Link>
+                    <Link className="no-underline">
                     <div className="section-button">
                         <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
                         <h2>Helpdesk (Próximamente)</h2>
                     </div>
+                    </Link>
+                    <Link className="no-underline">
                     <div className="section-button">
                         <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
                         <h2>Videos Tutoriales (Próximamente)</h2>
                     </div>
+                    </Link>
+                    <Link className="no-underline">
                     <div className="section-button">
                         <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
                         <h2>Chatbot (Próximamente)</h2>
                     </div>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -100,13 +100,10 @@ const PostSystem = () => {
         <div className="post-system-container">
             <nav className="navbarPost">
                 <div className="navbar-left">
-                    <a href="/homePage">←</a> {/* Flecha para volver a HomePage */}
+                    <a href="/homePage">←</a>
                 </div>
                 <div className="navbar-center">
-                    <span>TechTips</span> {/* Título centrado */}
-                </div>
-                <div className="navbar-right">
-                    {/* Puedes agregar más elementos en la parte derecha si es necesario */}
+                    <span>TechTips</span>
                 </div>
             </nav>
 

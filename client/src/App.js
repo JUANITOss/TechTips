@@ -6,6 +6,8 @@ import HomePage from './components/mainComponents/HomePage';
 import Register from './components/userComponents/Register';
 import Login from './components/userComponents/Login';
 import Profile from './components/userComponents/Profile';
+import FAQ from './components/faqComponents/FAQ';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/homePage" element={<HomePage />}/>
           
           <Route path="/postSystem" element={<PostSystem/>}/>
+          <Route path="/FAQ" element={<FAQ/>}/>
 
           <Route path="/*" element={<Auth/>} />
         </Routes>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api';
 import './Profile.css';
+import '../pageStyles/NavbarProfile.css';
 
 const Profile = () => {
     const [user, setUser] = useState({});
@@ -73,6 +74,15 @@ const Profile = () => {
 
     return (
         <div className="edit-profile-container">
+            <nav className="navbarProfile">
+                <div className="navbar-left">
+                    <a href="/homePage">←</a>
+                </div>
+                <div className="navbar-center">
+                    <span>TechTips</span> 
+                </div>
+            </nav>
+            <div className='edit-profile-forms'>
             <h2>Edit Profile</h2>
             <form onSubmit={handleProfileSubmit} className="edit-profile-form">
                 <div className="form-group">
@@ -109,7 +119,9 @@ const Profile = () => {
                 </div>
                 <button type="submit">Update Subscription</button>
             </form>
+            </div>
         </div>
+
     );
 };
 
