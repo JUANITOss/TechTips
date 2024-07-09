@@ -1,151 +1,77 @@
-body{
-    padding: 30px;
+/* PostSystem.css */
+body {
+    padding-top: 60px; /* Adjust padding to ensure content is not overlapped by navbar */
 }
 
-/* Estilo de la barra de navegación */
-.navbarPost {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: #fff;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
+.post-system-container {
+    padding: 20px;
 }
 
-.navbarPost a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
+.posts-container {
+    margin-top: 20px;
 }
 
-/* Ajuste de margen para evitar que el contenido se esconda detrás de la navbar */
-.page-content {
-    margin-top: 100px;
-    padding-top: 400px; /* Ajustar según la altura de la navbar */
-}
-
-/* Estilo para el botón "Create New Post" */
 .create-post-button {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #000000; /* Borde negro */
-    padding: 8px 16px;
+    background-color: #3a3a3a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 14px;
-    margin: 20px auto; /* Margen superior centrado */
-    display: block; /* Convertir en bloque para centrar */
-    transition: background-color 0.3s ease;
-    max-width: 200px; /* Ancho máximo */
-    width: calc(100% - 40px); /* Ancho 100% menos el padding de 20px a cada lado */
-    position: relative; /* Asegurar que no quede oculto */
+    margin-bottom: 20px;
 }
 
 .create-post-button:hover {
-    background-color: #f0f0f0; /* Cambio de color al pasar el mouse */
+    background-color: #555;
 }
 
-/* Tarjeta de post */
 .post-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra tenue */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
-    max-width: 600px; /* Ancho máximo de la tarjeta */
-    margin: 20px auto; /* Centrar horizontalmente y dar margen */
 }
 
-/* Header del post */
 .post-header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-/* Imagen de perfil */
-.profile-picture {
-    width: 40px;
+.post-header .profile-picture {
     height: 40px;
+    width: 40px;
     border-radius: 50%;
-    object-fit: cover;
     margin-right: 10px;
 }
 
-/* Nombre de usuario */
-.creator-username {
-    font-weight: bold;
+.post-content h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-/* Contenido del post */
-.post-content {
-    margin-top: 10px;
+.post-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-/* Botones minimalistas */
 .button {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: #3a3a3a;
+    color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 5px 10px;
+    font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 14px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
+    margin-right: 5px;
 }
 
-.button:hover {
-    background-color: #0056b3;
+.button.cancel-button {
+    background-color: #ff4d4d;
 }
 
-/* Estilo para el botón Cancel */
-.cancel-button {
-    background-color: #dc3545;
-}
-
-.cancel-button:hover {
-    background-color: #c82333;
-}
-
-/* Formulario de edición */
-.edit-modal {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
-
-.edit-modal h2 {
-    margin-bottom: 10px;
-}
-
-/* Estrellas de calificación */
-.star-rating {
-    margin-top: 5px;
-}
-
-/* Estilo para el input del formulario */
-.input-field {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.input-field:focus {
-    outline: none;
-    border-color: #007bff;
+.button.cancel-button:hover {
+    background-color: #ff1a1a;
 }

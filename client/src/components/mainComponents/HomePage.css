@@ -1,80 +1,65 @@
-/* Navbar Styles */
-.navbarHome {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: #fff;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
 
-.logout-button {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100px;
-}
 
-.navbar-title {
-    font-size: 24px;
-    text-align: center;
-    flex-grow: 1;
-    color: #fff;
-}
-
-.profile-picture {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    padding-right: 20px;
-}
-
-/* HomePage Content Styles */
 .homepage-content {
     text-align: center;
-    padding: 80px 20px 20px; /* Adjust padding-top to make space for the fixed navbar */
-    background-color: #f7f7f7;
+    padding: 20px;
+    padding-top: 100px;
 }
 
 .homepage-content h1 {
     margin-bottom: 20px;
-    color: #333;
+    font-size: 28px;
+}
+
+.section-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .section-button {
-    background-color: #fff;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin: 10px auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    width: 150px;
     text-align: center;
+    transition: transform 0.2s;
+}
+
+.section-button:hover {
+    transform: scale(1.05);
+}
+
+.section-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #777;
 }
 
 .section-button h2 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.section-button p,
-.section-button a {
     font-size: 16px;
-    color: #333;
+    margin-bottom: 10px;
 }
 
 .section-button a {
+    font-size: 14px;
+    color: #333;
     text-decoration: none;
-    color: #007BFF;
 }
 
-.section-button a:hover {
-    text-decoration: underline;
+.no-underline {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Set color */
+}
+
+.no-underline:hover {
+    color: #555; /* Optional: change color on hover if desired */
 }

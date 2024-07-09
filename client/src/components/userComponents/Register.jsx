@@ -51,10 +51,10 @@ const Register = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      
+
       if (response.status === 201) {
         setSuccessMessage('User registered successfully!');
-        console.log(response.data); 
+        console.log(response.data);
         window.location="/homePage";
       }
 
@@ -72,10 +72,11 @@ const Register = () => {
       <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
       <input type="text" name="surname" placeholder="Surname" onChange={handleChange} required />
       <input type="text" name="phoneNumber" placeholder="Phone Number" onChange={handleChange} required />
+      <p className='profilePictureP'>Seleccione una foto de perfil</p>
       <input type="file" name="profilePicture" onChange={handleFileChange} accept=".jpeg, .jpg, .png, .svg" />
       <button type="submit">Register</button>
-      {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
-      {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
+      {errorMessage && <p className='error'>{errorMessage}</p>}
+      {successMessage && <p className="success">{successMessage}</p>}
     </form>
   );
 };

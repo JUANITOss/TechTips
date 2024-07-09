@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api';
 import './HomePage.css';
+import '../pageStyles/NavbarHome.css';
 
 const HomePage = () => {
     const [user, setUser] = useState({});
@@ -40,26 +41,30 @@ const HomePage = () => {
                 />
             </nav>
             <div className="homepage-content">
-                <h1>Selecciona una sección:</h1>
-                <div className="section-button">
-                    <h2>Foro</h2>
-                    <Link to="/postSystem">Ir al Foro</Link>
-                </div>
-                <div className="section-button">
-                    <h2>Preguntas Frecuentes (Próximamente)</h2>
-                    <p>En construcción</p>
-                </div>
-                <div className="section-button">
-                    <h2>Helpdesk (Próximamente)</h2>
-                    <p>En construcción</p>
-                </div>
-                <div className="section-button">
-                    <h2>Videos Tutoriales (Próximamente)</h2>
-                    <p>En construcción</p>
-                </div>
-                <div className="section-button">
-                    <h2>Chatbot (Próximamente)</h2>
-                    <p>En construcción</p>
+                <div className="section-buttons">
+                    <Link to="/postSystem" className="no-underline">
+                        <div className="section-button">
+                            <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                            <h2>Foro</h2>
+                            
+                        </div>
+                    </Link>
+                    <div className="section-button">
+                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <h2>Preguntas Frecuentes (Próximamente)</h2>
+                    </div>
+                    <div className="section-button">
+                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <h2>Helpdesk (Próximamente)</h2>
+                    </div>
+                    <div className="section-button">
+                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <h2>Videos Tutoriales (Próximamente)</h2>
+                    </div>
+                    <div className="section-button">
+                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <h2>Chatbot (Próximamente)</h2>
+                    </div>
                 </div>
             </div>
         </div>
