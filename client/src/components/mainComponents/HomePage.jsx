@@ -57,7 +57,7 @@ const HomePage = () => {
                     <Link className="no-underline">
                     <div className="section-button">
                         <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
-                        <h2>Helpdesk (Próximamente)</h2>
+                        <h2>""""""Referidos"""""" (Próximamente)</h2>
                     </div>
                     </Link>
                     <Link className="no-underline">

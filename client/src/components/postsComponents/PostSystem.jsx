@@ -3,6 +3,7 @@ import api from '../../api';
 import PostForm from './PostForm';
 import StarRating from './StarRating';
 import './PostSystem.css';
+import '../pageStyles/NavbarPost.css';
 
 const PostSystem = () => {
     const [posts, setPosts] = useState([]);
@@ -100,10 +101,10 @@ const PostSystem = () => {
         <div className="post-system-container">
             <nav className="navbarPost">
                 <div className="navbar-left">
-                    <a href="/homePage">←</a>
+                    <a href="/homePage">←</a> {/* Flecha para volver a HomePage */}
                 </div>
                 <div className="navbar-center">
-                    <span>TechTips</span>
+                    <span>TechTips</span> {/* Título centrado */}
                 </div>
             </nav>
 
