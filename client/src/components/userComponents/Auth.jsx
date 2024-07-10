@@ -6,13 +6,14 @@ import '../pageStyles/NavbarAuth.css';
 
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(true);
+  const [clickedButton, setClickedButton] = useState(null);
 
-  const handleToggle = () => {
-    setIsRegister(!isRegister);
+  const handleToggle = (button) => {
+    setIsRegister(button === 'register');
+    setClickedButton(button);
   };
 
   return (
-    
     <div className="auth-container">
       <div className="navbarAuth">
         <h1 className="navbar-title">TechTips</h1>
@@ -20,14 +21,14 @@ const Auth = () => {
   
       <nav className="auth-nav">
         <button
-          className={`auth-toggle-button ${isRegister ? 'active' : ''}`}
-          onClick={() => setIsRegister(true)}
+          className={`auth-toggle-button ${isRegister ? 'active' : ''} ${clickedButton === 'register' ? 'clicked' : ''}`}
+          onClick={() => handleToggle('register')}
         >
           Register
         </button>
         <button
-          className={`auth-toggle-button ${!isRegister ? 'active' : ''}`}
-          onClick={() => setIsRegister(false)}
+          className={`auth-toggle-button ${!isRegister ? 'active' : ''} ${clickedButton === 'login' ? 'clicked' : ''}`}
+          onClick={() => handleToggle('login')}
         >
           Login
         </button>

@@ -8,6 +8,7 @@ Linkear Documentación o agregarla al repositorio como pdf
 # Para incializar proyecto
 
 ! TENER MONGODB INSTALADO Y CORRIENDO
+! ALGUNAS DEPENDENCIAS EXTRA A INSTALAR SE PUEDEN LLEGAR A SOLICITAR
 
 ## Backend
 
