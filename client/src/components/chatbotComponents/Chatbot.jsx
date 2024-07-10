@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../api';  // Ajusta la ruta según sea necesario
+import '../pageStyles/NavbarComponents.css';
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -27,6 +28,16 @@ const Chatbot = () => {
 
   return (
     <div>
+      
+      <nav className="navbarComponent">
+          <div className="navbar-left">
+            <a href="/homePage">←</a>
+          </div>
+          <div className="navbar-center">
+            <span>TechTips</span> 
+          </div>
+      </nav>
+
       <h2>Chatbot</h2>
       <div style={{ border: '1px solid #ccc', padding: '10px', height: '300px', overflowY: 'scroll' }}>
         {messages.map((msg, index) => (

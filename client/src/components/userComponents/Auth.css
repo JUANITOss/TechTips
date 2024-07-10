@@ -10,18 +10,49 @@
 .auth-nav {
     display: flex;
     justify-content: center;
+    align-items: center;
     border-bottom: 1px solid #3a3a3a;
     margin-bottom: 20px;
+    padding: 5px;
 }
 
 .auth-toggle-button {
     background: none;
     border: none;
-    font-size: 18px;
-    margin: 0 10px;
-    padding: 10px 20px;
+    font-size: 15px;
     cursor: pointer;
-    color: #3a3a3a;
+    border-radius: 0%;
+    position: relative;
+    color: inherit; 
+    padding: 0px;
+    margin: 0px;
+}
+
+.auth-toggle-button:hover {
+    background-color: transparent; /* Ensures text color does not change on hover */
+}
+
+.auth-toggle-button:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.auth-toggle-button::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor; /* Uses the current text color */
+    transition: width 0.4s ease, left 0.4s ease; /* Smooth transition */
+}
+
+.auth-toggle-button.clicked::after {
+    width: 100%;
+    left: 0;
+    transition: none; /* Disable transition */
+    height: 1px;
 }
 
 .profilePictureP {
@@ -52,8 +83,8 @@ input {
 
 button {
     width: 100%;
-    padding: 10px;
     background-color: #3a3a3a;
+    border-radius: 4px;
     color: white;
     border: none;
     border-radius: 4px;
