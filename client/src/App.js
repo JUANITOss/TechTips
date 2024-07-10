@@ -9,6 +9,7 @@ import Profile from './components/userComponents/Profile';
 import FAQ from './components/faqComponents/FAQ';
 import VideoTutorials from './components/tutorialComponents/VideoTutorials';
 import Chatbot from './components/chatbotComponents/Chatbot';
+import NotFound from './components/errorComponents/NotFound';
 
 function App() {
   return (
@@ -21,15 +22,13 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/editProfile" element={<Profile/>} />
 
-
           <Route path="/homePage" element={<HomePage />}/>
           <Route path="/postSystem" element={<PostSystem/>}/>
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/tutorials" element={<VideoTutorials/>}/>
           <Route path="/chatbot" element={<Chatbot />}/>
 
-
-          <Route path="/*" element={<Auth/>} />
+          <Route path="/*" element={<NotFound/>} />
         </Routes>
       </div>
     </Router>
