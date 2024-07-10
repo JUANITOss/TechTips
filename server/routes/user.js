@@ -38,6 +38,7 @@ router.post('/register', upload.single('profilePicture'), async (req, res) => {
 
     try {
         const existingUser = await User.findOne({ email });
+
         if (existingUser) {
             return res.status(400).json({ message: 'Email already exists' });
         }
@@ -56,6 +57,12 @@ router.post('/register', upload.single('profilePicture'), async (req, res) => {
         });
 
         await newUser.save();
+
+        const user = await User.findOne({ email });
+
+        req.session.userId = user._id;
+        req.session.email = user.email;
+
         res.status(201).json({ message: 'User registered successfully' });
 
     } catch (error) {
@@ -160,6 +167,21 @@ router.put('/updateSubscription', async (req, res) => {
         res.status(200).json({ message: 'Subscription status updated successfully' });
     } catch (error) {
         res.status(500).json({ message: 'Error updating subscription status', error });
+    }
+});
+
+// Logout
+router.post('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy(err => {
+            if (err) {
+                return res.status(500).json({ message: 'Error logging out', error: err });
+            } else {
+                return res.status(200).json({ message: 'Logout successful' });
+            }
+        });
+    } else {
+        return res.status(400).json({ message: 'No active session' });
     }
 });
 

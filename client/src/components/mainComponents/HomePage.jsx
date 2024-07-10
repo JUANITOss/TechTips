@@ -21,7 +21,7 @@ const HomePage = () => {
     const handleLogout = () => {
         api.post('/user/logout')
             .then(() => {
-                navigate.push('/login');
+                navigate('/');
             })
             .catch(error => {
                 console.error('Error logging out:', error);
@@ -60,10 +60,10 @@ const HomePage = () => {
                         <h2>""""""Referidos"""""" (Próximamente)</h2>
                     </div>
                     </Link>
-                    <Link className="no-underline">
+                    <Link to="/tutorials" className="no-underline">
                     <div className="section-button">
                         <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
-                        <h2>Videos Tutoriales (Próximamente)</h2>
+                        <h2>Videos Tutoriales</h2>
                     </div>
                     </Link>
                     <Link className="no-underline">
