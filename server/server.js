@@ -2,58 +2,36 @@
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const verifAuth = require('./middleware/authMiddleware');
+const connectMongoDB = require('./middleware/mongoMiddleware');
+const handleOptions = require('./middleware/handlerMiddleware');
 
 // Init app
 const app = express();
 
-// Middleware cors (sync con axios en cliente)
-app.use(cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-    optionsSuccessStatus: 204 // Retorna 204 No Content en las respuestas a los métodos que solicitan el successStatus  
-}));
-
-// Middleware HTTP
-const handleOptions = (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-    res.header('Access-Control-Allow-Credentials', true);
-    if (req.method === 'OPTIONS') {
-      res.sendStatus(200);
-    } else {
-      next();
-    }
-};
-
-// Middleware json y encode
+// Json y encode config
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// Manejo de archivos para /uploads
+// Cors config
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 204   
+}));
+
+// Files config
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Conexion MongoDB
-const connectMongoDB = async () => {
-    try {
-      await mongoose.connect('mongodb://localhost:27017/techtips');
-      console.log('Conectado a MongoDB');
-  
-    } catch (error) {
-      console.error('Error conectando a MongoDB: ', error);
-      process.exit(1);
-    }
-};
+// MongoDB connection
 connectMongoDB();
 
-// Manejo de express sessions
+// Express sessions config
 app.use(session({
     secret: "password",
     resave: false,
@@ -68,12 +46,10 @@ app.get('/verifyUser', verifAuth, (req, res) => {
 
 // Routing del proyecto
 
-// USTEDES MODIFICAN SOLO URLS Y RUTAS !!!!
-
 // URLS (SINTAXIS GENERAL: const rutaRoutes = require('./routes/ruta');)
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
-const chatbotRoutes = require('./routes/chatbot')
+const chatbotRoutes = require('./routes/chatbot');
 
 // RUTAS (SINTAXIS GENERAL: app.use('/ruta', handleOptions, rutaRoutes);)
 app.use('/user', handleOptions, userRoutes);

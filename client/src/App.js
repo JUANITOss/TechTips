@@ -8,7 +8,7 @@ import Login from './components/userComponents/Login';
 import Profile from './components/userComponents/Profile';
 import FAQ from './components/faqComponents/FAQ';
 import VideoTutorials from './components/tutorialComponents/VideoTutorials';
-import Chatbot from './components/postsComponents/Chatbot';
+import Chatbot from './components/chatbotComponents/Chatbot';
 
 function App() {
   return (
