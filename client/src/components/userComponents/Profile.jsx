@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api';
 import './Profile.css';
-import '../pageStyles/NavbarProfile.css';
+import '../pageStyles/NavbarComponents.css';
 
 const Profile = () => {
     const [user, setUser] = useState({});
@@ -74,7 +74,7 @@ const Profile = () => {
 
     return (
         <div className="edit-profile-container">
-            <nav className="navbarProfile">
+            <nav className="navbarComponent">
                 <div className="navbar-left">
                     <a href="/homePage">←</a>
                 </div>

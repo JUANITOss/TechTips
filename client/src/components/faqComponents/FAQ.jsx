@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './FAQ.css';
-import '../pageStyles/NavbarFAQ.css';
+import '../pageStyles/NavbarComponents.css';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -19,7 +19,7 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
-      <nav className="navbarFAQ">
+      <nav className="navbarComponent">
         <div className="navbar-left">
           <a href="/homePage">←</a>
         </div>
