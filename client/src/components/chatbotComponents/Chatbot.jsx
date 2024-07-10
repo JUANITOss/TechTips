@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import api from '../../api';  // Ajusta la ruta según sea necesario
+import './Chatbot.css';
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -10,7 +12,8 @@ const Chatbot = () => {
     if (!input.trim()) return;
 
     const userMessage = { sender: 'user', text: input };
-    setMessages([...messages, userMessage]);
+    setMessages(prevMessages => [...prevMessages, userMessage]);
+    setInput(''); // Borrar el campo de entrada inmediatamente después de añadir el mensaje
 
     try {
       const response = await api.post('/chatbot', { prompt: input });
@@ -21,30 +24,40 @@ const Chatbot = () => {
       const errorMessage = { sender: 'bot', text: `Error al obtener respuesta de la IA: ${error.response ? error.response.data.details : error.message}` };
       setMessages(prevMessages => [...prevMessages, errorMessage]);
     }
-
-    setInput('');
   };
 
   return (
-    <div>
-      <h2>Chatbot</h2>
-      <div style={{ border: '1px solid #ccc', padding: '10px', height: '300px', overflowY: 'scroll' }}>
-        {messages.map((msg, index) => (
-          <div key={index} style={{ textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
-            <strong>{msg.sender === 'user' ? 'Tú' : 'Chatbot'}: </strong>
-            <span>{msg.text}</span>
-          </div>
-        ))}
+    <div className="chatbot-container">
+      <nav className="navbarComponent">
+        <div className="navbar-left">
+          <a href="/homePage">←</a>
+        </div>
+        <div className="navbar-center">
+          <span>Wally Chatbot</span>
+        </div>
+      </nav>
+      <div className="chat-log-container">
+        <div className="chat-log">
+          {messages.map((msg, index) => (
+            <div key={index} className={`message ${msg.sender}`}>
+              <strong>{msg.sender === 'user' ? 'Tú' : 'Chatbot'}: </strong>
+              <ReactMarkdown>{msg.text}</ReactMarkdown>
+            </div>
+          ))}
+        </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Escribe tu mensaje..."
-        />
-        <button type="submit">Enviar</button>
-      </form>
+      <div className="form-container">
+        <form className="form" onSubmit={handleSubmit}>
+          <input
+            className="input"
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Escribe tu mensaje..."
+          />
+          <button className="button" type="submit">Enviar</button>
+        </form>
+      </div>
     </div>
   );
 };
