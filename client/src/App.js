@@ -8,6 +8,7 @@ import Login from './components/userComponents/Login';
 import Profile from './components/userComponents/Profile';
 import FAQ from './components/faqComponents/FAQ';
 import VideoTutorials from './components/tutorialComponents/VideoTutorials';
+import Chatbot from './components/postsComponents/Chatbot';
 
 function App() {
   return (
@@ -22,10 +23,10 @@ function App() {
 
 
           <Route path="/homePage" element={<HomePage />}/>
-          
           <Route path="/postSystem" element={<PostSystem/>}/>
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/tutorials" element={<VideoTutorials/>}/>
+          <Route path="/chatbot" element={<Chatbot />}/>
 
 
           <Route path="/*" element={<Auth/>} />

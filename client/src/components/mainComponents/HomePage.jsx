@@ -66,7 +66,7 @@ const HomePage = () => {
                         <h2>Videos Tutoriales</h2>
                     </div>
                     </Link>
-                    <Link className="no-underline">
+                    <Link to="/chatbot" className="no-underline">
                     <div className="section-button">
                         <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
                         <h2>Chatbot (Próximamente)</h2>

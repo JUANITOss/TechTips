@@ -73,10 +73,12 @@ app.get('/verifyUser', verifAuth, (req, res) => {
 // URLS (SINTAXIS GENERAL: const rutaRoutes = require('./routes/ruta');)
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
+const chatbotRoutes = require('./routes/chatbot')
 
 // RUTAS (SINTAXIS GENERAL: app.use('/ruta', handleOptions, rutaRoutes);)
 app.use('/user', handleOptions, userRoutes);
 app.use('/post', handleOptions, postRoutes);
+app.use('/chatbot', handleOptions, chatbotRoutes);
 
 // Iniciar el servidor
 const PORT = 5000;
