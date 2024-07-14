@@ -32,7 +32,9 @@ const HomePage = () => {
         <div>
             <nav className="navbarHome">
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
-                <h1 className="navbar-title">TechTips</h1>
+                <div className="logo">
+                    <img src="/imagenes/wally.png" alt="Logo Wally" />
+                </div>
                 <img 
                     src={`http://localhost:5000/uploads/${user.profilePicture}`} 
                     alt="Profile" 
@@ -44,31 +46,31 @@ const HomePage = () => {
                 <div className="section-buttons">
                     <Link to="/postSystem" className="no-underline">
                         <div className="section-button">
-                            <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                            <img src="/imagenes/foro.png" alt="Placeholder" className="section-image" />
                             <h2>Foro</h2>
                         </div>
                     </Link>
                     <Link to="/FAQ" className="no-underline">
                     <div className="section-button">
-                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <img src="/imagenes/preguntas_frecuentes.png" alt="preguntas_frecuentes_img" className="section-image" />
                         <h2>Preguntas Frecuentes</h2>
                     </div>
                     </Link>
                     <Link className="no-underline">
                     <div className="section-button">
-                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <img src="/imagenes/basura_inutil.png" alt="Placeholder" className="section-image" />
                         <h2>""""""Referidos"""""" (Próximamente)</h2>
                     </div>
                     </Link>
                     <Link to="/tutorials" className="no-underline">
                     <div className="section-button">
-                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <img src="/imagenes/videos_tutoriales.png" alt="Placeholder" className="section-image" />
                         <h2>Videos Tutoriales</h2>
                     </div>
                     </Link>
                     <Link to="/chatbot" className="no-underline">
                     <div className="section-button">
-                        <img src="path/to/placeholder-image.png" alt="Placeholder" className="section-image" />
+                        <img src="/imagenes/chatbot.png" alt="Placeholder" className="section-image" />
                         <h2>Chatbot</h2>
                     </div>
                     </Link>

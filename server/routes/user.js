@@ -112,7 +112,7 @@ router.get('/currentUser', async (req, res) => {
 // Update user profile information
 router.put('/updateProfile', async (req, res) => {
     const { username, password, name, surname, phoneNumber } = req.body;
-
+    
     try {
         const user = await User.findById(req.session.userId);
         if (!user) {
