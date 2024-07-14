@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const verifyAuth = require('../middleware/authMiddleware');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 // Inicializar la instancia de la IA generativa
 const genAI = new GoogleGenerativeAI('AIzaSyDJsdIl8ulGHR_urNpVmIXwEyvWmHeGQBw');  
 
 // Endpoint para generar contenido
-router.post('/', async (req, res) => {
+router.post('/', verifyAuth, async (req, res) => {
   const { prompt } = req.body;
 
   try {

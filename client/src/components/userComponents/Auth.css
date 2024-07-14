@@ -11,9 +11,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #3a3a3a;
+    border-bottom: 1px solid #410095;
     margin-bottom: 20px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .auth-toggle-button {
