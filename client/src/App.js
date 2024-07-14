@@ -10,6 +10,7 @@ import FAQ from './components/faqComponents/FAQ';
 import VideoTutorials from './components/tutorialComponents/VideoTutorials';
 import Chatbot from './components/chatbotComponents/Chatbot';
 import NotFound from './components/errorComponents/NotFound';
+import SendMessageForm from './components/connectionSystemComponents/SendMessageForm';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/tutorials" element={<VideoTutorials/>}/>
           <Route path="/chatbot" element={<Chatbot />}/>
+          <Route path="/sendMessage" element={<SendMessageForm />}/>
 
           <Route path="/*" element={<NotFound/>} />
         </Routes>

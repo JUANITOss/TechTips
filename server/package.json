@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/JUANITOss/TechTips.git"
   },
-  "author": "Juan Suazo, Luis Ingrassia, Tomas Regueria etc etc",
+  "author": "Juan Suazo, Tomas Regueria",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JUANITOss/TechTips/issues"
@@ -24,6 +24,7 @@
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "mongoose": "^8.4.5",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2"
   }
 }
