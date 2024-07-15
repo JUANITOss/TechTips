@@ -4,8 +4,9 @@ const { sendTelegramMessage } = require('../middleware/telegramMiddleware');
 const UserPrompts = require('../models/UserPrompts');
 const router = express.Router();
 
-router.post('/send-message', verifyAuth, async (req, res) => {
-  const { chatId, messageText } = req.body;
+router.post('/sendMessage', verifyAuth, async (req, res) => {
+
+  const { contactId, messageText } = req.body;
   const userId = req.session.userId;
 
   try {
@@ -17,17 +18,18 @@ router.post('/send-message', verifyAuth, async (req, res) => {
       promptsText = userPrompts.prompts.join('\n');
     }
 
-    const fullMessage = `${messageText}\n\nÚltimas 5 prompts:\n${promptsText}`;
+    const fullMessage = `${messageText}\nÚltimas 5 prompts:\n\n${promptsText}`;
 
-    if (chatId && messageText) {
-      await sendTelegramMessage(chatId, fullMessage);
+    if (contactId && messageText) {
+      await sendTelegramMessage(contactId, fullMessage);
       res.status(200).send({ message: 'Message sent successfully' });
     } else {
-      res.status(400).send({ error: 'chatId and messageText are required' });
+      res.status(400).send({ error: 'contactId and messageText are required' + contactId });
     }
   } catch (error) {
     console.error('Error sending message:', error);
-    res.status(500).send({ error: 'Failed to send message' });
+    console.log(`${contactId} ${messageText}`);
+    res.status(500).send({ error: 'Failed to send message' + contactId + fullMessage });
   }
 });
 

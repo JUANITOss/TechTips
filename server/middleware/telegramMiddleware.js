@@ -1,7 +1,7 @@
-const sendTelegramMessage = async (chatId, messageText) => {
+const sendTelegramMessage = async (contactId, messageText) => {
 
   const fetch = (await import('node-fetch')).default;
-  const token = 'your-telegram-bot-token';
+  const token = '6916595365:AAGdsbG8OPr5AVVGRQdvcBQhWcTX2wKU0nU';
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
   const response = await fetch(url, {
@@ -10,7 +10,7 @@ const sendTelegramMessage = async (chatId, messageText) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      chat_id: chatId,
+      chat_id: contactId,
       text: messageText,
     }),
   });
@@ -18,7 +18,7 @@ const sendTelegramMessage = async (chatId, messageText) => {
   if (response.ok) {
     console.log('Message sent:', messageText);
   } else {
-    console.log('Failed to send message:', await response.text());
+    console.log('Failed to send message:', await response.text() + contactId);
   }
 };
 

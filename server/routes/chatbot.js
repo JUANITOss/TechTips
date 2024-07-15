@@ -23,7 +23,7 @@ router.post('/', verifyAuth, async (req, res) => {
     }
 
     // Guardar el prompt en la base de datos
-    let userPrompts = await UserPrompts.findOne({ _id: userId });
+    let userPrompts = await UserPrompts.findOne({ userId: userId });
     
     if (!userPrompts) {
       userPrompts = new UserPrompts({ userId, prompts: [] });

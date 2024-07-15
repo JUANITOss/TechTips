@@ -29,10 +29,13 @@ router.post('/addContact', async (req, res) => {
 
         // Asociar el contacto al usuario
         const user = await User.findOne({ _id: userId });
+
         if (!user) {
         return res.status(404).json({ error: 'User not found' });
         }
+
         user.contacts.push(newContact);
+        
         await user.save();
 
         res.status(201).json({ contact: newContact });
