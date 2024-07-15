@@ -89,8 +89,8 @@ const SendMessageForm = ({ userId }) => {
         <div className="navbar-left">
           <a href="/homePage">←</a>
         </div>
-        <div className="navbar-center">
-          <span>TechTips</span>
+        <div className="navbar-center logo">
+          <img src="/imagenes/basura_inutil.png" alt="basura Wally" />
         </div>
       </nav>
 

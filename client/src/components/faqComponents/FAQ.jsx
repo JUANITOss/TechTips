@@ -23,8 +23,8 @@ const FAQ = () => {
         <div className="navbar-left">
           <a href="/homePage">←</a>
         </div>
-        <div className="navbar-center">
-          <span>TechTips</span>
+        <div className="navbar-center logo">
+          <img src="/imagenes/preguntas_frecuentes.png" alt="FAQ Wally" />
         </div>
       </nav>
 
