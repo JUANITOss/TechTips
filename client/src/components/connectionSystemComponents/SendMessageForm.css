@@ -1,0 +1,140 @@
+
+
+.send-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  font-family: Arial, sans-serif; 
+  padding-top: 60px;
+}
+
+.center-container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-form {
+  width: 100%;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; 
+  text-align: left; 
+}
+
+.form-content {
+  width: 100%; 
+  max-width: 500px; 
+  margin: 0 auto; 
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group textarea,
+.form-group input[type="text"] {
+  max-width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  background-color: #3a3a3a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px; 
+}
+
+.submit-button:hover {
+  background-color: #555;
+}
+
+/* Estilos del modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80%; 
+  max-width: 400px; 
+
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.modal-content label {
+  margin-bottom: 10px;
+}
+
+.modal-content input[type="text"] {
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  background-color: #3a3a3a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px; 
+}
+
+.modal-content button[type="button"] {
+  background-color: #bbb;
+  margin-right: 10px;
+}
+
+.modal-content button[type="button"]:hover,
+.modal-content button[type="submit"]:hover {
+  background-color: #555;
+}

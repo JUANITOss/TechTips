@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     surname: { type: String, required: true },
     phoneNumber: { type: String, required: true },
     profilePicture: { type: String },
-    subscription: { type: Boolean, default: false }
+    subscription: { type: Boolean, default: false },
+    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
