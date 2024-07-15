@@ -50,11 +50,13 @@ app.get('/verifyUser', verifAuth, (req, res) => {
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
 const chatbotRoutes = require('./routes/chatbot');
+const telegramRoutes = require('./routes/telegramConnection');
 
 // RUTAS (SINTAXIS GENERAL: app.use('/ruta', handleOptions, rutaRoutes);)
 app.use('/user', handleOptions, userRoutes);
 app.use('/post', handleOptions, postRoutes);
 app.use('/chatbot', handleOptions, chatbotRoutes);
+app.use('/telegram', handleOptions, telegramRoutes);
 
 // Iniciar el servidor
 const PORT = 5000;

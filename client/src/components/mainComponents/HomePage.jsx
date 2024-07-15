@@ -56,7 +56,7 @@ const HomePage = () => {
                         <h2>Preguntas Frecuentes</h2>
                     </div>
                     </Link>
-                    <Link className="no-underline">
+                    <Link to="/sendMessage" className="no-underline">
                     <div className="section-button">
                         <img src="/imagenes/basura_inutil.png" alt="Placeholder" className="section-image" />
                         <h2>""""""Referidos"""""" (Próximamente)</h2>
