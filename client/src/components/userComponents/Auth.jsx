@@ -24,13 +24,13 @@ const Auth = () => {
           className={`auth-toggle-button ${isRegister ? 'active' : ''} ${clickedButton === 'register' ? 'clicked' : ''}`}
           onClick={() => handleToggle('register')}
         >
-          Register
+          Registrarse
         </button>
         <button
           className={`auth-toggle-button ${!isRegister ? 'active' : ''} ${clickedButton === 'login' ? 'clicked' : ''}`}
           onClick={() => handleToggle('login')}
         >
-          Login
+          Iniciar Sesion
         </button>
       </nav>
       {isRegister ? <Register /> : <Login />}

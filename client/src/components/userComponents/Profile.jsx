@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../api';
 import './Profile.css';
 import '../pageStyles/NavbarComponents.css';
+import { Navigate } from 'react-router-dom';
 
 const Profile = () => {
     const [user, setUser] = useState({});
@@ -71,6 +72,15 @@ const Profile = () => {
                 console.error('Error updating subscription status:', error);
             });
     };
+    const handleLogout = () => {
+        api.post('/user/logout')
+            .then(() => {
+                Navigate('/');
+            })
+            .catch(error => {
+                console.error('Error logging out:', error);
+            });
+    };
 
     return (
         <div className="edit-profile-container">
@@ -83,42 +93,43 @@ const Profile = () => {
                 </div>
             </nav>
             <div className='edit-profile-forms'>
-            <h2>Edit Profile</h2>
+            <h2>Editar Perfil</h2>
             <form onSubmit={handleProfileSubmit} className="edit-profile-form">
                 <div className="form-group">
-                    <label>Username</label>
+                    <label>Usuario</label>
                     <input type="text" name="username" value={user.username || ''} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
-                    <label>First Name</label>
+                    <label>Nombre</label>
                     <input type="text" name="name" value={user.name || ''} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
-                    <label>Surname</label>
+                    <label>Apellido</label>
                     <input type="text" name="surname" value={user.surname || ''} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
-                    <label>Phone Number</label>
+                    <label>Numero Telefono</label>
                     <input type="text" name="phoneNumber" value={user.phoneNumber || ''} onChange={handleInputChange} />
                 </div>
-                <button type="submit">Update Profile</button>
+                <button type="submit">Actualizar Perfil</button>
             </form>
 
             <form onSubmit={handleProfilePictureSubmit} className="edit-profile-form">
                 <div className="form-group">
-                    <label>Profile Picture</label>
+                    <label>Foto de Perfil</label>
                     <input type="file" onChange={handleProfilePictureChange} />
                 </div>
-                <button type="submit">Update Profile Picture</button>
+                <button type="submit">Actualizar Foto de Perfil</button>
             </form>
 
             <form onSubmit={handleSubscriptionSubmit} className="edit-profile-form">
                 <div className="form-group">
-                    <label>Subscription</label>
+                    <label>Subscripción</label>
                     <input type="checkbox" checked={subscription} onChange={handleSubscriptionChange} />
                 </div>
-                <button type="submit">Update Subscription</button>
+                <button type="submit">Actualizar Subscripción</button>
             </form>
+            <button className="logout-button" onClick={handleLogout}>Logout</button>
             </div>
         </div>
 
