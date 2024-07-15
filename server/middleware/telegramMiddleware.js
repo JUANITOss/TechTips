@@ -1,5 +1,5 @@
 const sendTelegramMessage = async (chatId, messageText) => {
-  // Importación dinámica de node-fetch
+
   const fetch = (await import('node-fetch')).default;
   const token = 'your-telegram-bot-token';
   const url = `https://api.telegram.org/bot${token}/sendMessage`;

@@ -20,12 +20,12 @@ router.get('/userContacts', async (req, res) => {
 
 // Ruta para agregar un contacto a un usuario específico
 router.post('/addContact', async (req, res) => {
-    const { name, chatId } = req.body;
+    const { name, contactId } = req.body;
     const userId = req.session.userId;
-    
+
     try {
         // Crear el contacto
-        const newContact = await Contact.create({ name, chatId });
+        const newContact = await Contact.create({ name, contactId });
 
         // Asociar el contacto al usuario
         const user = await User.findOne({ _id: userId });

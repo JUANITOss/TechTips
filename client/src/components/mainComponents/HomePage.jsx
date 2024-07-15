@@ -59,7 +59,7 @@ const HomePage = () => {
                     <Link to="/sendMessage" className="no-underline">
                     <div className="section-button">
                         <img src="/imagenes/basura_inutil.png" alt="Placeholder" className="section-image" />
-                        <h2>""""""Referidos"""""" (Próximamente)</h2>
+                        <h2>Telegram Bot</h2>
                     </div>
                     </Link>
                     <Link to="/tutorials" className="no-underline">

@@ -7,7 +7,7 @@ const SendMessageForm = ({ userId }) => {
   const [selectedContact, setSelectedContact] = useState('');
   const [message, setMessage] = useState('');
   const [newContactName, setNewContactName] = useState('');
-  const [newChatId, setNewChatId] = useState('');
+  const [newContactId, setNewContactId] = useState('');
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -36,8 +36,8 @@ const SendMessageForm = ({ userId }) => {
     setNewContactName(e.target.value);
   };
 
-  const handleNewChatIdChange = (e) => {
-    setNewChatId(e.target.value);
+  const handleNewContactIdChange = (e) => {
+    setNewContactId(e.target.value);
   };
 
   const toggleModal = () => {
@@ -48,12 +48,12 @@ const SendMessageForm = ({ userId }) => {
     try {
       const response = await api.post('/contacts/addContact', {
         name: newContactName,
-        chatId: newChatId,
+        contactId: newContactId,
       });
       const createdContact = response.data.contact;
       setContacts([...contacts, createdContact]);
       setNewContactName('');
-      setNewChatId('');
+      setNewContactId('');
       toggleModal(); // Close modal after successful creation
       alert('Contact created successfully!');
     } catch (error) {
@@ -101,7 +101,7 @@ const SendMessageForm = ({ userId }) => {
             <div className="form-group">
               <label>
                 Contact:
-                <select value={selectedContact} onChange={handleContactChange}>
+                <select className='select-contacts' value={selectedContact} onChange={handleContactChange}>
                   {contacts.map((contact) => (
                     <option key={contact._id} value={contact.chatId}>
                       {contact.name}
@@ -143,15 +143,18 @@ const SendMessageForm = ({ userId }) => {
                 </div>
                 <div className="form-group">
                   <label>
-                    Chat ID:
+                    Contact ID:
                     <input
                       type="text"
-                      value={newChatId}
-                      onChange={handleNewChatIdChange}
+                      value={newContactId}
+                      onChange={handleNewContactIdChange}
                       required
                     />
                   </label>
                 </div>
+                <p className="disclaimer">
+                  Para obtener el Contact ID, el contacto debe pasarte su id luego de iniciar una conversacion con userinfobot desde la barra de busqueda de telegram. Al recibir su mensaje, copiar la id enviada a este campo.
+                </p>
                 <button type="button" className="submit-button" onClick={handleCreateContact}>Create Contact</button>
                 <button type="button" className="submit-button" onClick={toggleModal}>Cancel</button>
               </form>

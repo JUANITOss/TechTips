@@ -30,6 +30,10 @@
   text-align: left; 
 }
 
+.message-form h2 {
+  text-align: center;
+}
+
 .form-content {
   width: 100%; 
   max-width: 500px; 
@@ -74,6 +78,10 @@
   background-color: #555;
 }
 
+.select-contacts {
+  margin-left: 10px;
+}
+
 /* Estilos del modal */
 .modal {
   position: fixed;
@@ -116,6 +124,9 @@
 
 .modal-content input[type="text"] {
   margin-bottom: 15px;
+  margin-top: 5px;
+  width: 300px;
+  max-width: 100%;
 }
 
 .modal-content button {
@@ -137,4 +148,11 @@
 .modal-content button[type="button"]:hover,
 .modal-content button[type="submit"]:hover {
   background-color: #555;
+}
+
+/* Disclaimer */
+.disclaimer {
+  color: #888;
+  font-size: 14px;
+  margin-top: 10px;
 }
