@@ -32,8 +32,8 @@ const Chatbot = () => {
         <div className="navbar-left">
           <a href="/homePage">←</a>
         </div>
-        <div className="navbar-center">
-          <span>Wally Chatbot</span>
+        <div className="navbar-center logo">
+          <img src="/imagenes/chatbot.png" alt="Logo Wally" />
         </div>
       </nav>
       <div className="chat-log-container">
