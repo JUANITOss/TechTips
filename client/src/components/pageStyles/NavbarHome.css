@@ -10,7 +10,7 @@
     background-color: #410095;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure it is above other content */
+    z-index: 1000; 
 }
 
 .logout-button {

@@ -139,7 +139,21 @@ const SendMessageForm = () => {
                   </label>
                 </div>
                 <p className="disclaimer">
-                  Para obtener el Contact ID, el contacto debe pasarte su id luego de iniciar una conversacion con userinfobot desde la barra de busqueda de telegram. Al recibir su mensaje, copiar la id enviada a este campo.
+                Como agrego un asistente?
+                
+<br />
+<br />
+<b>PASO 1: Obtener el Id del asistente por agregar</b>
+<br />
+Para obtener el Id, el asistente debe abrir la barra de búsqueda de Telegram, tipear userinfobot y copiar el id que le devuelva al campo de Contact Id al momento de agregar un nuevo asistente, el nombre puede ser personalizado.
+<br />
+<br />
+<b>PASO 2: Sincronizar al asistente con nuestro bot</b>
+<br />
+Para sincronizar al asistente con nuestro bot, el asistente debe abrir la siguiente url e iniciar el chat: http://t.me/techTipsMcPrisma_bot
+<br />
+<br />
+<b>PASO 3: Ya está! Ahora el usuario debe seleccionar a su asistente desde el selector y escribir su mensaje.</b>
                 </p>
                 <button type="button" className="submit-button" onClick={handleCreateContact}>Create Contact</button>
                 <button type="button" className="submit-button" onClick={toggleModal}>Cancel</button>
@@ -153,91 +167,3 @@ const SendMessageForm = () => {
 };
 
 export default SendMessageForm;
-
-
-/* 
-
-return (
-  <div className="send-message-container">
-    
-    <nav className="navbarComponent">
-      <div className="navbar-left">
-        <a href="/homePage">←</a>
-      </div>
-      <div className="navbar-center">
-        <span>TechTips</span>
-      </div>
-    </nav>
-
-    <div className={`center-container ${showModal ? 'modal-open' : ''}`}>
-      <div className="message-form">
-        <h2>Send a Message</h2>
-        <form onSubmit={handleSubmit} className="form-content">
-          <div className="form-group">
-            <label>
-              Contact:
-              <select className='select-contacts' value={selectedContact} onChange={handleContactChange}>
-                {contacts.map((contact) => (
-                  <option key={contact._id} value={contact.chatId}>
-                    {contact.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <div className="form-group">
-            <label>
-              Message:
-              <textarea
-                value={message}
-                onChange={handleMessageChange}
-                rows="4"
-                cols="50"
-              />
-            </label>
-          </div>
-          <button type="submit" className="submit-button">Send Message</button>
-        </form>
-        <button onClick={toggleModal} className="submit-button">Add Contact</button>
-      </div>
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Add Contact</h2>
-            <form>
-              <div className="form-group">
-                <label>
-                  Name:
-                  <input
-                    type="text"
-                    value={newContactName}
-                    onChange={handleNewContactChange}
-                    required
-                  />
-                </label>
-              </div>
-              <div className="form-group">
-                <label>
-                  Contact ID:
-                  <input
-                    type="text"
-                    value={newContactId}
-                    onChange={handleNewContactIdChange}
-                    required
-                  />
-                </label>
-              </div>
-              <p className="disclaimer">
-                Para obtener el Contact ID, el contacto debe pasarte su id luego de iniciar una conversacion con userinfobot desde la barra de busqueda de telegram. Al recibir su mensaje, copiar la id enviada a este campo.
-              </p>
-              <button type="button" className="submit-button" onClick={handleCreateContact}>Create Contact</button>
-              <button type="button" className="submit-button" onClick={toggleModal}>Cancel</button>
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
-  </div>
-);
-
-*/ 

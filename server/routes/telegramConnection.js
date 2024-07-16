@@ -18,7 +18,7 @@ router.post('/sendMessage', verifyAuth, async (req, res) => {
       promptsText = userPrompts.prompts.join('\n');
     }
 
-    const fullMessage = `${messageText}\nÚltimas 5 prompts:\n\n${promptsText}`;
+    const fullMessage = `${messageText}\n\nÚltimas 5 prompts:\n\n${promptsText}\n\n El link para conexion remota es: https://urlRemoteAssistant.com`;
 
     if (contactId && messageText) {
       await sendTelegramMessage(contactId, fullMessage);
