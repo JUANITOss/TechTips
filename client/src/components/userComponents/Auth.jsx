@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Register from './Register';
 import Login from './Login';
-import './Auth.css';
+//import './Auth.css';
 import '../pageStyles/NavbarAuth.css';
 
 const Auth = () => {

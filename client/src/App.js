@@ -11,12 +11,12 @@ import VideoTutorials from './components/tutorialComponents/VideoTutorials';
 import Chatbot from './components/chatbotComponents/Chatbot';
 import NotFound from './components/errorComponents/NotFound';
 import SendMessageForm from './components/connectionSystemComponents/SendMessageForm';
-//import './index.css';
+import './index.css';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className='App'>
         <Routes>
           
           <Route path="/" element={<Auth/>} />
@@ -35,6 +35,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+  
   );
 }
 
