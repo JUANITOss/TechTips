@@ -37,63 +37,84 @@ const FAQ = () => {
     { question: "¿Qué es el almacenamiento en caché y cómo afecta mi dispositivo?", answer: "El almacenamiento en caché guarda datos temporales en tu dispositivo para que las aplicaciones funcionen más rápido. En TechTips, te explicamos cómo borrar la caché para liberar espacio y solucionar problemas de rendimiento." },
     { question: "¿Cómo puedo conectarme a una red Wi-Fi?", answer: "Conectarse a una red Wi-Fi te permite acceder a internet sin usar datos móviles. En TechTips, te mostramos cómo buscar y conectarte a redes Wi-Fi disponibles, y cómo resolver problemas comunes de conexión." },
     { question: "¿Cómo puedo configurar mi correo electrónico en mi teléfono?", answer: "Configurar tu correo electrónico en tu teléfono te permite acceder a tus mensajes desde cualquier lugar. En TechTips, te mostramos cómo añadir tu cuenta de correo a la aplicación de correo predeterminada de tu dispositivo, ya sea Android o iOS." },
-    { question: "¿Qué es una aplicación y cómo la instalo en mi teléfono?", answer: "Una aplicación es un programa que puedes descargar y usar en tu teléfono para realizar diferentes tareas. En TechTips, te explicamos cómo buscar, descargar e instalar aplicaciones desde la tienda de aplicaciones de tu dispositivo, como Google Play Store o App Store." },
-    { question: "¿Cómo puedo tomar y compartir fotos con mi teléfono?", answer: "Tomar y compartir fotos con tu teléfono es una forma divertida de capturar y compartir momentos. En TechTips, te mostramos cómo usar la cámara de tu teléfono para tomar fotos y cómo compartirlas con tus amigos y familiares a través de mensajes o redes sociales." },
-    { question: "¿Qué es un navegador web y cómo lo uso?", answer: "Un navegador web es una aplicación que te permite acceder a internet y visitar sitios web. En TechTips, te enseñamos cómo usar un navegador web como Google Chrome, Firefox o Safari para buscar información, guardar tus páginas favoritas y navegar de forma segura." },
-    { question: "¿Cómo puedo proteger mi dispositivo con una contraseña?", answer: "Proteger tu dispositivo con una contraseña ayuda a mantener tu información segura. En TechTips, te mostramos cómo configurar una contraseña, un PIN o una huella digital en tu teléfono o tableta para mejorar la seguridad de tus datos." },
-    { question: "¿Cómo puedo escuchar música en línea?", answer: "Escuchar música en línea es fácil con servicios de streaming como Spotify, Apple Music y YouTube Music. En TechTips, te guiamos sobre cómo crear una cuenta, buscar y reproducir tus canciones favoritas y crear listas de reproducción." },
-    { question: "¿Qué es un PDF y cómo lo abro en mi dispositivo?", answer: "Un PDF es un formato de documento que se utiliza para compartir archivos de manera que se vean igual en cualquier dispositivo. En TechTips, te enseñamos cómo abrir y leer archivos PDF en tu teléfono o computadora usando aplicaciones gratuitas como Adobe Acrobat Reader." },
-    { question: "¿Cómo puedo hacer videollamadas grupales?", answer: "Hacer videollamadas grupales te permite conectarte con varias personas al mismo tiempo. En TechTips, te explicamos cómo usar aplicaciones como Zoom, Microsoft Teams y Google Meet para organizar y participar en videollamadas grupales de forma sencilla." },
-    { question: "¿Cómo puedo liberar espacio en mi teléfono?", answer: "Liberar espacio en tu teléfono es importante para mantener su buen rendimiento. En TechTips, te mostramos cómo eliminar aplicaciones y archivos innecesarios, limpiar la caché y utilizar almacenamiento en la nube para liberar espacio en tu dispositivo." },
-    { question: "¿Qué es una actualización de software y por qué es importante?", answer: "Las actualizaciones de software son mejoras que los desarrolladores hacen a sus aplicaciones y sistemas operativos. En TechTips, te explicamos cómo actualizar tu software para obtener nuevas funciones, mejorar la seguridad y corregir errores en tu dispositivo." },
-    { question: "¿Cómo puedo crear una cuenta en Instagram?", answer: "Instagram es una popular red social para compartir fotos y videos. En TechTips, te mostramos cómo descargar la aplicación, crear una cuenta y empezar a usar Instagram para seguir a tus amigos, compartir tus fotos y explorar contenido interesante." },
-    { question: "¿Cómo puedo enviar mensajes de texto desde mi computadora?", answer: "Enviar mensajes de texto desde tu computadora puede ser útil si prefieres escribir en un teclado más grande. En TechTips, te explicamos cómo usar aplicaciones como WhatsApp Web y mensajes de Google para enviar y recibir mensajes de texto desde tu computadora." },
-    { question: "¿Qué es un asistente virtual y cómo lo uso?", answer: "Un asistente virtual es una aplicación que te ayuda a realizar tareas mediante comandos de voz. En TechTips, te enseñamos cómo usar asistentes virtuales como Google Assistant, Siri y Alexa para realizar llamadas, enviar mensajes, obtener información y mucho más." },
-    { question: "¿Cómo puedo conectar mi teléfono a una TV?", answer: "Conectar tu teléfono a una TV te permite ver contenido en una pantalla más grande. En TechTips, te mostramos cómo usar cables HDMI, Chromecast o AirPlay para conectar tu teléfono a tu TV y disfrutar de videos, fotos y aplicaciones en tu televisor." },
-    { question: "¿Cómo puedo crear y gestionar contactos en mi teléfono?", answer: "Crear y gestionar contactos en tu teléfono te facilita la comunicación. En TechTips, te enseñamos cómo añadir nuevos contactos, editar información existente y organizar tus contactos en grupos para una gestión más sencilla." },
-    { question: "¿Cómo puedo usar Google Drive para almacenar mis archivos?", answer: "Google Drive es un servicio de almacenamiento en la nube que te permite guardar y acceder a tus archivos desde cualquier dispositivo. En TechTips, te mostramos cómo subir, organizar y compartir tus archivos en Google Drive de manera segura y eficiente." },
-    { question: "¿Cómo puedo escanear documentos con mi teléfono?", answer: "Escanear documentos con tu teléfono es fácil y conveniente. En TechTips, te enseñamos cómo usar aplicaciones como Adobe Scan o la cámara de tu teléfono para escanear documentos y guardarlos como archivos PDF o imágenes." },
-    { question: "¿Cómo puedo hacer compras en línea de manera segura?", answer: "Hacer compras en línea es cómodo, pero es importante hacerlo de manera segura. En TechTips, te damos consejos sobre cómo elegir sitios web confiables, proteger tu información de pago y reconocer señales de posibles fraudes." },
-    { question: "¿Cómo puedo compartir mi ubicación con amigos y familiares?", answer: "Compartir tu ubicación con amigos y familiares puede ser útil para mantenerte seguro y conectado. En TechTips, te mostramos cómo usar aplicaciones como Google Maps y WhatsApp para compartir tu ubicación en tiempo real." },
-    { question: "¿Cómo puedo traducir texto usando mi teléfono?", answer: "Traducir texto usando tu teléfono es sencillo con aplicaciones como Google Translate. En TechTips, te enseñamos cómo traducir texto escrito, hablado o incluso desde imágenes usando tu teléfono." },
-  ];
+    { question: "¿Qué es una aplicación y cómo la instalo en mi teléfono?", answer: "Una aplicación es un programa que puedes descargar y usar en tu teléfono para diferentes propósitos, como redes sociales, juegos, productividad y más. En TechTips, te explicamos cómo buscar, descargar e instalar aplicaciones desde la tienda de aplicaciones de tu dispositivo." },
+    { question: "¿Cómo puedo ver videos en YouTube?", answer: "YouTube es una plataforma de videos en línea donde puedes ver contenido creado por usuarios de todo el mundo. En TechTips, te mostramos cómo buscar videos, suscribirte a canales, crear listas de reproducción y disfrutar de YouTube de manera segura." },
+    { question: "¿Qué es el streaming de música y cómo lo uso?", answer: "El streaming de música te permite escuchar canciones en línea sin necesidad de descargarlas. En TechTips, te explicamos cómo suscribirte a servicios de streaming como Spotify, Apple Music o Amazon Music, buscar y reproducir música, y crear listas de reproducción personalizadas." },
+    { question: "¿Cómo puedo cambiar la configuración de privacidad en mis cuentas en línea?", answer: "Ajustar la configuración de privacidad te ayuda a controlar quién puede ver tu información en plataformas en línea. En TechTips, te mostramos cómo acceder a la configuración de privacidad en redes sociales, servicios de correo electrónico y otras cuentas en línea para proteger tu información personal." },
+    { question: "¿Qué es un emoji y cómo los uso en mis mensajes?", answer: "Los emojis son iconos que puedes añadir a tus mensajes para expresar emociones y ideas. En TechTips, te enseñamos cómo encontrar y usar emojis en diferentes aplicaciones y dispositivos, y cómo personalizar tu selección de emojis favoritos." },
+    { question: "¿Cómo puedo compartir archivos entre dispositivos?", answer: "Compartir archivos te permite enviar documentos, fotos y otros archivos entre dispositivos diferentes. En TechTips, te mostramos cómo usar servicios de almacenamiento en la nube, aplicaciones de mensajería y transferencias directas para compartir archivos de manera fácil y segura." },
+    { question: "¿Qué es un podcast y cómo puedo escucharlo?", answer: "Un podcast es un programa de audio que puedes escuchar en línea o descargar para escucharlo más tarde. En TechTips, te mostramos cómo buscar, suscribirte y escuchar podcasts sobre diferentes temas, desde noticias hasta entretenimiento y educación." },
+];
 
-  const filteredFaqs = faqs.filter(faq =>
+  const filteredFaqs = faqs.filter((faq) =>
     faq.question.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="faq-container">
-      <nav className="navbarComponent">
-        <div className="navbar-left">
-          <a href="/homePage">←</a>
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      <header className="px-4 md:px-6 py-4 border-b">
+        <div className="container max-w-6xl mx-auto flex items-center justify-between">
+          <a className="flex items-center gap-2" href="#" rel="ugc">
+            <img src="/imagenes/wally.png" alt="Logo Wally" className="w-20 h-20" />
+            <span className="font-semibold text-lg">TechTips</span>
+          </a>
         </div>
-        <div className="navbar-center logo">
-          <img src="/imagenes/preguntas_frecuentes.png" alt="FAQ Wally" />
-        </div>
-      </nav>
-
-      <div className="faq-content">
-        <h1>Frequently Asked Questions</h1>
-        <input
-          type="text"
-          placeholder="Buscar preguntas..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="faq-search"
-        />
-        <ul className="faq-list">
-          {filteredFaqs.map((faq, index) => (
-            <li key={index} className={`faq-item ${openIndex === index ? 'open' : ''}`}>
-              <div className="faq-question" onClick={() => toggleQuestion(index)}>
-                <span>{faq.question}</span>
-                <span className="toggle-icon">{openIndex === index ? '-' : '+'}</span>
+      </header>
+      <main className="flex-1 py-8">
+        <div className="container max-w-6xl mx-auto px-4 md:px-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 lg:mb-10">
+            Preguntas Frecuentes
+          </h1>
+          <div className="mb-6 md:mb-8 lg:mb-10">
+            <input
+              type="text"
+              className="w-full px-4 py-2 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Buscar preguntas..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:gap-6 lg:gap-8">
+            {filteredFaqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg p-6 flex flex-col items-start justify-start text-left mb-4"
+              >
+                <button
+                  onClick={() => toggleQuestion(index)}
+                  className="font-semibold text-lg mb-2 w-full flex items-center justify-between"
+                >
+                  {faq.question}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`w-6 h-6 ${
+                      openIndex === index ? 'transform rotate-180' : ''
+                    }`}
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                {openIndex === index && (
+                  <p className="text-gray-700">{faq.answer}</p>
+                )}
               </div>
-              {openIndex === index && <div className="faq-answer">{faq.answer}</div>}
-            </li>
-          ))}
-        </ul>
-      </div>
+            ))}
+          </div>
+        </div>
+      </main>
+      <footer className="bg-gray-200 py-4">
+        <div className="container max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-center">
+          <p className="text-sm text-gray-600">&copy; 2024 TechTips. Todos los derechos reservados.</p>
+        </div>
+      </footer>
     </div>
   );
 };
