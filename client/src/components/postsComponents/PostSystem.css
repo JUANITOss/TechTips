@@ -1,12 +1,4 @@
 /* PostSystem.css */
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Esta línea elimina el scroll lateral */
-    width: 100%;
-    padding-top: 30px;
-  }
-
 .post-system-container {
     padding: 20px;
 }
