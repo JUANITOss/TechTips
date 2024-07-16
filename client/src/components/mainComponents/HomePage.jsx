@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api';
 import '../../index.css';
 
@@ -32,41 +32,29 @@ const HomePage = () => {
         <header class="px-4 md:px-6 py-4 border-b">
           <div class="container max-w-6xl mx-auto flex items-center justify-between">
             <a class="flex items-center gap-2" href="#" rel="ugc">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-6 h-6 text-primary"
-              >
-                <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
-              </svg>
+              <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
               <span class="font-semibold text-lg">TechTips</span>
             </a>
-            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-              Get Started
-            </button>
+            <img 
+                    src={`http://localhost:5000/uploads/${user.profilePicture}`} 
+                    alt="Profile" 
+                    className="w-12 h-12 rounded-full" 
+                    onClick={() => navigate('/editProfile')}
+                />
           </div>
         </header>
         <main class="flex-1 py-12 md:py-16 lg:py-20">
           <div class="container max-w-6xl mx-auto px-4 md:px-6">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 lg:mb-10">
-              How can we assist you today?
+              ¿Como podemos ayudarte?
             </h1>
             <p class="text-muted-foreground text-center max-w-3xl mx-auto mb-10 md:mb-12 lg:mb-14">
-              Choose from our available options to get the help you need, whether it's chatting with our AI assistant,
-              contacting a human expert, or exploring our resources.
+              Elige cualquiera de estas opciones
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-              <a
+              <Link
                 class="group bg-card rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-card-hover transition-colors"
-                href="#"
-                rel="ugc"
+                to="/chatbot"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -78,19 +66,18 @@ const HomePage = () => {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="w-10 h-10 mb-4 text-primary group-hover:text-primary-foreground"
+                  class="w-10 h-10 mb-4 text-primary group-hover:text-primary-foreground hover:stroke-violet-700"
                 >
-                  <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                  <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"> </path>
                 </svg>
-                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Chat with AI</h3>
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground hover:text-violet-700">ChatBot</h3>
                 <p class="text-muted-foreground text-sm group-hover:text-primary-foreground">
-                  Get instant answers and assistance from our AI chatbot.
+                  Habla con Wally
                 </p>
-              </a>
-              <a
+              </Link>
+              <Link 
                 class="group bg-card rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-card-hover transition-colors"
-                href="#"
-                rel="ugc"
+                to="/sendMessage"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,15 +96,14 @@ const HomePage = () => {
                   <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
-                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Contact Assistant</h3>
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Contactar Asistente</h3>
                 <p class="text-muted-foreground text-sm group-hover:text-primary-foreground">
-                  Speak with one of our human experts for personalized assistance.
+                  Habla con Wally
                 </p>
-              </a>
-              <a
+              </Link>
+              <Link
                 class="group bg-card rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-card-hover transition-colors"
-                href="#"
-                rel="ugc"
+                to="/tutorials"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,14 +120,14 @@ const HomePage = () => {
                   <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
                   <rect x="2" y="6" width="14" height="12" rx="2"></rect>
                 </svg>
-                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Video Tutorials</h3>
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Video Tutoriales</h3>
                 <p class="text-muted-foreground text-sm group-hover:text-primary-foreground">
-                  Explore our library of helpful video tutorials.
+                  Habla con Wally
                 </p>
-              </a>
-              <a
+              </Link>
+              <Link
                 class="group bg-card rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-card-hover transition-colors"
-                href="#"
+                to="/postSystem"
                 rel="ugc"
               >
                 <svg
@@ -168,43 +154,24 @@ const HomePage = () => {
                   <path d="M22 13h-4"></path>
                   <path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"></path>
                 </svg>
-                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Common Questions</h3>
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Foro</h3>
                 <p class="text-muted-foreground text-sm group-hover:text-primary-foreground">
-                  Find answers to our most frequently asked questions.
+                  Habla con Wally
                 </p>
-              </a>
+              </Link>
             </div>
           </div>
         </main>
         <footer class="bg-muted py-6 md:py-8 lg:py-10">
           <div class="container max-w-6xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-6 h-6 text-muted-foreground"
-              >
-                <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
-              </svg>
-              <span class="text-muted-foreground">© 2023 Acme AI. All rights reserved.</span>
+              <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
+              <span class="text-muted-foreground">© 2024 McPrisma.</span>
             </div>
             <nav class="flex items-center gap-4">
-              <a class="text-muted-foreground hover:text-foreground" href="#" rel="ugc">
-                Privacy
-              </a>
-              <a class="text-muted-foreground hover:text-foreground" href="#" rel="ugc">
-                Terms
-              </a>
-              <a class="text-muted-foreground hover:text-foreground" href="#" rel="ugc">
-                Sitemap
-              </a>
+              <Link class="text-muted-foreground hover:text-foreground" to="/FAQ">
+                Preguntas Frecuentes
+              </Link>
             </nav>
           </div>
         </footer>
