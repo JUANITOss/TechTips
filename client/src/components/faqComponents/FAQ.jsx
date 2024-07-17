@@ -51,7 +51,7 @@ const FAQ = () => {
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen">
       <header className="px-4 md:px-6 py-4 border-b">
         <div className="container max-w-6xl mx-auto flex items-center justify-between">
           <a className="flex items-center gap-2" href="#" rel="ugc">
