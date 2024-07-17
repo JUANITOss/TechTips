@@ -1,16 +1,6 @@
-.send-message-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-height: 100vh;
-  font-family: Arial, sans-serif; 
-  padding-top: 60px;
-}
 
 .center-container {
   width: 100%;
-  max-width: 600px;
   text-align: center; 
   display: flex;
   flex-direction: column;
@@ -19,7 +9,7 @@
 }
 
 .message-form {
-  width: 100%;
+  max-width: 80%;
   padding: 20px;
   background-color: #f0f0f0;
   border-radius: 8px;
@@ -99,8 +89,8 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 80%; 
-  max-width: 400px; 
+  width: 50%; 
+  max-width: 900px; 
 }
 
 .modal-content h2 {
