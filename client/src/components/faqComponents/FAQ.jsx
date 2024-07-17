@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './FAQ.css';
 import '../pageStyles/NavbarComponents.css';
 import { Link } from 'react-router-dom';
 
@@ -80,7 +79,7 @@ const FAQ = () => {
             {filteredFaqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg p-6 flex flex-col items-start justify-start text-left mb-4"
+                
               >
                 <button
                   onClick={() => toggleQuestion(index)}
@@ -112,11 +111,6 @@ const FAQ = () => {
           </div>
         </div>
       </main>
-      <footer className="bg-gray-200 py-4">
-        <div className="container max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-center">
-          <p className="text-sm text-gray-600">&copy; 2024 TechTips. Todos los derechos reservados.</p>
-        </div>
-      </footer>
     </div>
   );
 };

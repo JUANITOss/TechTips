@@ -8,15 +8,6 @@
   justify-content: center;
 }
 
-.message-form {
-  max-width: 80%;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; 
-  text-align: left; 
-}
 
 .message-form h2 {
   text-align: center;
@@ -62,15 +53,33 @@
   margin-top: 10px; 
 }
 
+#tutorial-button {
+  background-color: #3a3a3a6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px; 
+}
+
+
+#tutorial-button:hover {
+  background-color: #9240d5;
+}
+
+
+
 .submit-button:hover {
-  background-color: #555;
+  background-color: #9240d5;
 }
 
 .select-contacts {
   margin-left: 10px;
 }
 
-/* Estilos del modal */
+
 .modal {
   position: fixed;
   top: 0;
@@ -89,7 +98,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 50%; 
+  width: 20%; 
   max-width: 900px; 
 }
 
@@ -127,14 +136,13 @@
   margin-top: 10px; 
 }
 
-.modal-content button[type="button"] {
-  background-color: #bbb;
-  margin-right: 10px;
-}
-
 .modal-content button[type="button"]:hover,
 .modal-content button[type="submit"]:hover {
-  background-color: #555;
+  background-color: #9240d5;;
+}
+
+.popup {
+  padding-top: 50px;
 }
 
 /* Disclaimer */
@@ -142,5 +150,42 @@
   color: #888;
   font-size: 14px;
   margin-top: 10px;
+}
+
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  cursor: pointer; /* Asegúrate de que el cursor cambie al pasar sobre el select */
+}
+
+.select-wrapper::after {
+  content: '\25BE'; /* Flecha hacia abajo */
+  font-size: 12px;
+  color: #999;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform 0.3s ease; /* Transición suave para la transformación */
+}
+
+.select-wrapper.open::after {
+  transform: translateY(-50%) rotate(180deg); /* Rotación de la flecha cuando está abierto */
 }
 

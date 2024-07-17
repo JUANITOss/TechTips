@@ -88,23 +88,26 @@ const SendMessageForm = () => {
               </h2>
               <form onSubmit={handleSubmit} className="form-content">
                 <div className="form-group">
-                  <label className="text-lg mb-2">Contact:</label>
-                  <select
-                    className='select-contacts'
-                    value={contactId}
-                    onChange={(e) => setContactId(e.target.value)}
-                    required
-                  >
-                    <option value="">Select a contact</option>
-                    {contacts.map((contact) => (
-                      <option key={contact._id} value={contact.contactId}>
-                        {contact.name}
-                      </option>
-                    ))}
-                  </select>
+                  <label className="text-lg mb-2">Asistente:</label>
+                  <div className="select-wrapper">
+                    <select
+                      className="py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200"
+                      value={contactId}
+                      onChange={(e) => setContactId(e.target.value)}
+                      required
+                    >
+                      <option value="">Seleccionar un Asistente</option>
+                      {contacts.map((contact) => (
+                        <option key={contact._id} value={contact.contactId}>
+                          {contact.name}
+                        </option>
+                      ))}
+                    </select>
+                </div>
+
                 </div>
                 <div className="form-group">
-                  <label className="text-lg mb-2">Message:</label>
+                  <label className="text-lg mb-2">Mensaje a enviar:</label>
                   <textarea
                     value={messageText}
                     onChange={(e) => setMessageText(e.target.value)}
@@ -113,17 +116,17 @@ const SendMessageForm = () => {
                     required
                   />
                 </div>
-                <button type="submit" className="submit-button">Send Message</button>
+                <button type="submit" className="submit-button">Enviar</button>
               </form>
-              <button onClick={toggleModal} className="submit-button">Add Contact</button>
+              <button onClick={toggleModal} className="submit-button">Añadir Asistente</button>
             </div>
             {showModal && (
               <div className="modal">
                 <div className="modal-content smaller">
-                  <h2>Add Contact</h2>
+                  <h2>Añadir Asistente</h2>
                   <form>
                     <div className="form-group">
-                      <label>Name:</label>
+                      <label>Nombre:</label>
                       <input
                         type="text"
                         value={newContactName}
@@ -132,7 +135,7 @@ const SendMessageForm = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label>Contact ID:</label>
+                      <label>ID de contacto:</label>
                       <input
                         type="text"
                         value={newContactId}
@@ -140,14 +143,14 @@ const SendMessageForm = () => {
                         required
                       />
                     </div>
-                    <button type="button" className="submit-button" onClick={handleCreateContact}>Create Contact</button>
-                    <button type="button" className="submit-button" onClick={toggleModal}>Cancel</button>
+                    <button type="button" className="submit-button" onClick={handleCreateContact}>Agregar</button>
+                    <button type="button" className="submit-button" onClick={toggleModal}>Cancelar</button>
                   </form>
                 </div>
               </div>
             )}
             <div className="popup">
-              <button className="popup-button" onClick={toggleTutorialModal}>Tutorial</button>
+              <button className="submit-button" id="tutorial-button" onClick={toggleTutorialModal}>Tutorial</button>
               {showTutorialModal && (
                 <div className="modal">
                   <div className="modal-content">
@@ -156,19 +159,24 @@ const SendMessageForm = () => {
                       Como agrego un asistente?
                       <br />
                       <br />
+                      <p>Para contactar con su asistente desde nuestra aplicación deberá realizar los siguientes pasos:</p>
+                      <br />
+                      <br />
                       <b>PASO 1: Obtener el Id del asistente por agregar</b>
                       <br />
-                      Para obtener el Id, el asistente debe abrir la barra de búsqueda de Telegram, tipear userinfobot y copiar el id que le devuelva al campo de Contact Id al momento de agregar un nuevo asistente, el nombre puede ser personalizado.
+                      Para obtener el Id, el asistente debe abrir la barra de búsqueda de Telegram, tipear userinfobot,seleccionar alguno de todos y copiar el id que le devuelva al campo de Contact Id al momento de agregar un nuevo asistente, el nombre puede ser personalizado.
                       <br />
                       <br />
                       <b>PASO 2: Sincronizar al asistente con nuestro bot</b>
                       <br />
-                      Para sincronizar al asistente con nuestro bot, el asistente debe abrir la siguiente url e iniciar el chat: http://t.me/techTipsMcPrisma_bot
+                      Para sincronizar al asistente con nuestro bot, el asistente debe
+                      <span><b><a href="https://web.telegram.org/k/#@techTipsMcPrisma_bot" target="_blank" parse_mode='html'> Presionar este texto para ir a bot e iniciar conversacion con el</a></b></span>
                       <br />
                       <br />
-                      <b>PASO 3: Ya está! Ahora el usuario debe seleccionar a su asistente desde el selector y escribir su mensaje.</b>
+                      <p><b>PASO 3: Ya está!</b></p>
+                      <p>Una vez esté iniciado el chat, usted debe seleccionar a su asistente recién agregado desde el selector y escribir su mensaje.</p> 
                     </p>
-                    <button className="popup-close" onClick={toggleTutorialModal}>Cerrar</button>
+                    <button className="submit-button" onClick={toggleTutorialModal}>Cerrar</button>
                   </div>
                 </div>
               )}
