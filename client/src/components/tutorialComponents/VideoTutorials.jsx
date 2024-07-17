@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api';
 import './VideoTutorials.css';
 import '../pageStyles/NavbarComponents.css';
 
 const VideoTutorials = () => {
     const [user, setUser] = useState({});
-    const navigate = useNavigate();
 
     useEffect(() => {
         api.get('/user/currentUser')
@@ -67,80 +65,30 @@ const VideoTutorials = () => {
             title: 'Uso básico de Excel',
             description: 'Introducción a las funciones básicas de Excel para gestionar datos y crear hojas de cálculo.',
         },
-        {
-            link: 'https://www.youtube.com/watch?v=gcIw6Ehz_zA',
-            thumbnail: 'https://img.youtube.com/vi/gcIw6Ehz_zA/0.jpg',
-            title: 'Cómo realizar videollamadas con Zoom',
-            description: 'Guía completa para realizar videollamadas utilizando la aplicación Zoom.',
-        },
-        {
-            link: 'https://www.youtube.com/watch?v=utdX2h9C1Dg',
-            thumbnail: 'https://img.youtube.com/vi/utdX2h9C1Dg/0.jpg',
-            title: 'Instalación y uso de aplicaciones en iPhone',
-            description: 'Tutorial de cómo descargar, instalar y usar aplicaciones en un dispositivo iPhone.',
-        }
     ];
 
     return (
         <div className="flex flex-col min-h-[100dvh] bg-background">
-            <header className="px-4 md:px-6 py-4 border-b">
-                <div className="container max-w-6xl mx-auto flex items-center justify-between">
-                    <a className="flex items-center gap-2" href="#" rel="ugc">
-                        <img src="/imagenes/wally.png" alt="Logo Wally" className="w-20 h-20" />
-                        <span className="font-semibold text-lg">TechTips</span>
-                    </a>
-                    <img
-                        src={`http://localhost:5000/uploads/${user.profilePicture}`}
-                        alt="Profile"
-                        className="w-12 h-12 rounded-full"
-                        onClick={() => navigate('/editProfile')}
-                    />
-                </div>
-            </header>
-            <main className="flex-1 py-12 md:py-16 lg:py-20">
-                <div className="container max-w-6xl mx-auto px-4 md:px-6">
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 lg:mb-10">
-                        Video Tutoriales
-                    </h1>
-                    <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-10 md:mb-12 lg:mb-14">
-                        Aprende nuevas habilidades con nuestros videos tutoriales.
-                    </p>
-                    <div className="video-thumbnail-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-                        {videos.map((video, index) => (
-                            <a
-                                key={index}
-                                className="group bg-card rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-card-hover transition-colors"
-                                href={video.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img
-                                    src={video.thumbnail}
-                                    alt={video.title}
-                                    className="video-thumbnail w-full mb-4"
-                                />
-                                <h3 className="video-title text-lg font-semibold mb-2 group-hover:text-primary-foreground">{video.title}</h3>
-                                <p className="video-descripcion text-muted-foreground text-sm group-hover:text-primary-foreground">
-                                    {video.description}
-                                </p>
-                            </a>
-                        ))}
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 py-8 md:px-6 lg:py-12">
+                {videos.map((video, index) => (
+                    <div key={index} className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                        <a className="absolute inset-0 z-10" href={video.link} target="_blank" rel="noopener noreferrer"></a>
+                        <img
+                            src={video.thumbnail}
+                            alt={video.title}
+                            width="400"
+                            height="225"
+                            className="object-cover w-full aspect-video"
+                        />
+                        <div className="p-4 bg-background">
+                            <h3 className="text-lg font-bold line-clamp-2 group-hover:text-violet-700">{video.title}</h3>
+                            <p className="text-sm text-muted-foreground line-clamp-2">
+                                {video.description}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </main>
-            <footer className="bg-muted py-6 md:py-8 lg:py-10">
-                <div className="container max-w-6xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-2">
-                        <img src="/imagenes/wally.png" alt="Logo Wally" className="w-20 h-20" />
-                        <span className="text-muted-foreground">© 2024 McPrisma.</span>
-                    </div>
-                    <nav className="flex items-center gap-4">
-                        <Link className="text-muted-foreground hover:text-foreground" to="/FAQ">
-                            Preguntas Frecuentes
-                        </Link>
-                    </nav>
-                </div>
-            </footer>
+                ))}
+            </section>
         </div>
     );
 };

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../api';
-import './SendMessageForm.css'; // Estilos específicos del componente
+import './SendMessageForm.css'; 
 
 const SendMessageForm = () => {
   const [contacts, setContacts] = useState([]);
   const [contactId, setContactId] = useState('');
   const [messageText, setMessageText] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
-  const [showModal, setShowModal] = useState(false); // Estado para el pop-up de añadir contacto
-  const [showTutorialModal, setShowTutorialModal] = useState(false); // Estado para el pop-up de tutorial
+  const [showModal, setShowModal] = useState(false); 
+  const [showTutorialModal, setShowTutorialModal] = useState(false); 
   const [newContactName, setNewContactName] = useState('');
   const [newContactId, setNewContactId] = useState('');
 
@@ -176,19 +176,6 @@ const SendMessageForm = () => {
         </div>
       </main>
 
-      <footer className="bg-muted py-6 md:py-8 lg:py-10">
-        <div className="container max-w-6xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <img src="/imagenes/mcPrisma.png" alt="Logo McPrisma" className='w-10 h-10'/>
-            <span className="text-muted-foreground">© 2024 McPrisma.</span>
-          </div>
-          <nav className="flex items-center gap-4">
-            <Link className="text-muted-foreground hover:text-foreground hover:text-violet-700" to="/FAQ">
-              Preguntas Frecuentes
-            </Link>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 };
