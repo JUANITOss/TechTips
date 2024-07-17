@@ -3,11 +3,8 @@ import api from '../../api';
 import PostForm from './PostForm';
 import StarRating from './StarRating';
 import './PostSystem.css';
-<<<<<<< HEAD
 import '../pageStyles/NavbarComponents.css';
-=======
 import { Link } from 'react-router-dom';
->>>>>>> 721e990 (foro terminado)
 
 const PostSystem = () => {
     const [posts, setPosts] = useState([]);
@@ -103,42 +100,22 @@ const PostSystem = () => {
 
     return (
         <div className="post-system-container">
-<<<<<<< HEAD
-            <nav className="navbarComponent">
-                <div className="navbar-left">
-                    <a href="/homePage">←</a>
-                </div>
-                <div className="navbar-center logo">
-                    <img src="/imagenes/foro.png" alt="foro Wally" />
-                </div>
-            </nav>
-
-            <div className="posts-container">
-=======
-            
-            <header className="navbar">
+            <div className="navbar-forum">
 
                 <a className="navbar-left-backwards-arrow" href="/homePage"><img className='arrow-image-backwards-1' src="/imagenes/left_arrow.png" alt="" /></a>
-
-                <h1 className=" font-bold text-center text-black text-2xl">
-                    Bienvenido al foro
-                </h1>
-
->>>>>>> 721e990 (foro terminado)
+                <h1 className="navbar-title">Bienvenido al foro</h1>
                 <button className="create-post-button" onClick={() => setShowCreateForm(!showCreateForm)}>
-                    {showCreateForm ? 'Cancel' : 'Create New Post'}
+                    {showCreateForm ? 
+                        <svg className="add-post-svg" fill="gray" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M17,15.6L15.6,17L12,13.4L8.4,17L7,15.6l3.6-3.6L7,8.4L8.4,7l3.6,3.6L15.6,7L17,8.4L13.4,12L17,15.6z"></path>
+                        </svg>
+                        :
+                        <svg className="add-post-svg" fill="gray" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M17,13h-4v4h-2v-4H7v-2h4V7h2v4h4V13z"></path>
+                        </svg>
+                    }
                 </button>
-
                 {showCreateForm && (
-<<<<<<< HEAD
-                    <PostForm
-                        onSubmit={handleCreatePost}
-                        title=""
-                        setTitle={setEditTitle}
-                        content=""
-                        setContent={setEditContent}
-                    />
-=======
                     <div className="modal">
                         <div className="modal-content">
                             <h3 className='edit-post'>Create Post</h3>
@@ -154,46 +131,9 @@ const PostSystem = () => {
                             </div>
                         </div>  
                     </div>
->>>>>>> 721e990 (foro terminado)
                 )}
+            </div>
 
-<<<<<<< HEAD
-                {showEditModal && (
-                    <div className="edit-modal">
-                        <h2>Edit Post</h2>
-                        <PostForm
-                            post={editingPost}
-                            onSubmit={handleEditPost}
-                            title={editTitle}
-                            setTitle={setEditTitle}
-                            content={editContent}
-                            setContent={setEditContent}
-                        />
-                        <button className="button cancel-button" onClick={() => setShowEditModal(false)}>Close</button>
-                    </div>
-                )}
-
-                {posts.map(post => (
-                    <div key={post._id} className="post-card">
-                        <div className="post-header">
-                            {post.creatorProfilePicture && (
-                                <img className="profile-picture" src={`http://localhost:5000/uploads/${post.creatorProfilePicture}`} alt="Profile" />
-                            )}
-                            <span className="creator-username">{post.creatorUsername}</span>
-                        </div>
-                        <div className="post-content">
-                            <h2>{post.title}</h2>
-                            <p>{post.content}</p>
-                            <div>
-                                Average Score:
-                                <StarRating
-                                    rating={post.averageScore}
-                                    disabled
-                                />
-                            </div>
-                            <div>
-                                Your Score:
-=======
             <main>
                 <div className="posts-container">
                     {posts.map(post => (
@@ -203,70 +143,55 @@ const PostSystem = () => {
                                     {post.creatorProfilePicture && (
                                         <img className="profile-picture" src={`http://localhost:5000/uploads/${post.creatorProfilePicture}`} alt="Profile" />
                                     )}
-                                    <span className="creator-username font-bold text-black">{post.creatorUsername}</span>
+                                    <span className="creator-username">{post.creatorUsername}</span>
                                 </div>
                                 <div className="post-score">
                                     <StarRating rating={post.averageScore} disabled />
                                 </div>
                             </div>
                             <div className="post-content">
-                                <h3 id='titulo-post' className='font-bold mb-6 md:mb-8 lg:mb-10 text-black'>{post.title}</h3>
-                                <p  id='contenido-post' className='text-muted-foreground max-w-3xl mb-10 md:mb-12 lg:mb-14'>{post.content}</p>
+                                <h3 id='titulo-post'>{post.title}</h3>
+                                <p id='contenido-post'>{post.content}</p>
                             </div>
                             <div className="post-actions">
                                 <div className='puntuacion-usuario'>
-                                <span className='text-muted-foreground'>Mi opinión: </span>
->>>>>>> 721e990 (foro terminado)
-                                <StarRating
-                                    rating={post.userScore}
-                                    onRate={(score) => handleScorePost(post._id, score)}
-                                    disabled={editingPost !== null}
-                                />
-<<<<<<< HEAD
-                            </div>
-                            {userId && post.createdBy === userId && (
-                                <div>
-                                    <button className="button" onClick={() => handleEditClick(post)}>Edit</button>
-                                    <button className="button cancel-button" onClick={() => handleDeletePost(post._id)}>Delete</button>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                ))}
-            </div>
-=======
+                                    <span>Mi opinión: </span>
+                                    <StarRating
+                                        rating={post.userScore}
+                                        onRate={(score) => handleScorePost(post._id, score)}
+                                        disabled={editingPost !== null}
+                                    />
                                 </div>
                                 {userId && post.createdBy === userId && (
                                     <div className="post-buttons">
                                         <button className="button-post" onClick={() => handleEditClick(post)}>Editar</button>
-                                        <button className="button-post  cancel-button-post" onClick={() => handleDeletePost(post._id)}>Borrar</button>
+                                        <button className="button-post cancel-button-post" onClick={() => handleDeletePost(post._id)}>Borrar</button>
                                     </div>
                                 )}
                             </div>
                         </div>
                     ))}
                 </div>
+            </main>
 
-                {showEditModal && (
-                    <div className="modal">
-                        <div className="modal-content">
-                            <h3 className='edit-post'>Edit Post</h3>
-                            <PostForm
-                                post={editingPost}
-                                onSubmit={handleEditPost}
-                                title={editTitle}
-                                setTitle={setEditTitle}
-                                content={editContent}
-                                setContent={setEditContent}
-                            />
-                            <div className="button-container">
-                                <button className="button-post cancel-button-post" onClick={() => setShowEditModal(false)}>Cancelar</button>
-                            </div>
+            {showEditModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <h3 className='edit-post'>Edit Post</h3>
+                        <PostForm
+                            post={editingPost}
+                            onSubmit={handleEditPost}
+                            title={editTitle}
+                            setTitle={setEditTitle}
+                            content={editContent}
+                            setContent={setEditContent}
+                        />
+                        <div className="button-container">
+                            <button className="button-post cancel-button-post" onClick={() => setShowEditModal(false)}>Cancelar</button>
                         </div>
                     </div>
-                )}
-            </main>
->>>>>>> 721e990 (foro terminado)
+                </div>
+            )}
         </div>
     );
 };
