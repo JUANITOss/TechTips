@@ -14,6 +14,7 @@ const PostForm = ({ post, onSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        id='input-creador-post'
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -21,6 +22,7 @@ const PostForm = ({ post, onSubmit }) => {
         required
       />
       <textarea
+        id='textarea-creador-post'
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Content"
