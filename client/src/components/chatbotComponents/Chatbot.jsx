@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import api from '../../api';  // Ajusta la ruta según sea necesario
-import './Chatbot.css';
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
