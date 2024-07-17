@@ -26,6 +26,7 @@ const Profile = () => {
             ...prevState,
             [name]: value
         }));
+        
     };
 
     const handleProfilePictureChange = (e) => {
