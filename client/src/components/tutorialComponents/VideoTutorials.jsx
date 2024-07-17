@@ -70,15 +70,21 @@ const VideoTutorials = () => {
 
     return (
         <div className="flex flex-col min-h-[100dvh] bg-background">
-            <header className="px-4 md:px-6 border-b">
-          <div className="mx-auto flex items-center justify-between">
-            <Link className="flex items-center gap-2" to="/homePage">
-              <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
-            </Link>
-            <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12 cursor-pointer'/>
+        <header className="px-4 md:px-6 border-b">
+          
+            <div className="mx-auto flex items-center justify-between">
+                <Link className="flex items-center gap-2" to="/homePage">
+                    <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
+                </Link>
+                    <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12 cursor-pointer'/>
 
-          </div>
+            </div>
         </header>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center md:mb-8 lg:mb-10 text-black pt-[20px] ">
+                Videos Tutoriales
+            </h2>
+
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 py-8 md:px-6 lg:py-12">
                 {videos.map((video, index) => (
                     <div key={index} className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out">

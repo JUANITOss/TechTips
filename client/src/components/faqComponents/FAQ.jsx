@@ -79,7 +79,7 @@ const FAQ = () => {
             {filteredFaqs.map((faq, index) => (
               <div
                 key={index}
-                
+                className='hover:text-violet-700'
               >
                 <button
                   onClick={() => toggleQuestion(index)}
@@ -98,7 +98,7 @@ const FAQ = () => {
                     strokeLinejoin="round"
                     className={`w-6 h-6 ${
                       openIndex === index ? 'transform rotate-180' : ''
-                    }`}
+                    } `}
                   >
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>

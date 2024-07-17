@@ -49,7 +49,7 @@ const HomePage = () => {
               ¿Como podemos ayudarte?
             </h1>
             <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-10 md:mb-12 lg:mb-14">
-              Elige cualquiera de estas opciones
+            ‎ 
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
               <Link
@@ -98,7 +98,7 @@ const HomePage = () => {
                 </svg>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Contactar Asistente</h3>
                 <p className="text-muted-foreground text-sm group-hover:text-primary-foreground">
-                  Habla con Wally
+                  Envia mensaje a un asistente
                 </p>
               </Link>
               <Link
@@ -122,7 +122,7 @@ const HomePage = () => {
                 </svg>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Video Tutoriales</h3>
                 <p className="text-muted-foreground text-sm group-hover:text-primary-foreground">
-                  Habla con Wally
+                  Aprende visualmente
                 </p>
               </Link>
               <Link
@@ -156,7 +156,7 @@ const HomePage = () => {
                 </svg>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-primary-foreground">Foro</h3>
                 <p className="text-muted-foreground text-sm group-hover:text-primary-foreground">
-                  Habla con Wally
+                  Soluciones de otros que podrian servirte
                 </p>
               </Link>
             </div>
