@@ -67,6 +67,18 @@ const VideoTutorials = () => {
             title: 'Uso básico de Excel',
             description: 'Introducción a las funciones básicas de Excel para gestionar datos y crear hojas de cálculo.',
         },
+        {
+            link: 'https://www.youtube.com/watch?v=gcIw6Ehz_zA',
+            thumbnail: 'https://img.youtube.com/vi/gcIw6Ehz_zA/0.jpg',
+            title: 'Cómo realizar videollamadas con Zoom',
+            description: 'Guía completa para realizar videollamadas utilizando la aplicación Zoom.',
+        },
+        {
+            link: 'https://www.youtube.com/watch?v=utdX2h9C1Dg',
+            thumbnail: 'https://img.youtube.com/vi/utdX2h9C1Dg/0.jpg',
+            title: 'Instalación y uso de aplicaciones en iPhone',
+            description: 'Tutorial de cómo descargar, instalar y usar aplicaciones en un dispositivo iPhone.',
+        }
     ];
 
     return (

@@ -10,7 +10,6 @@ const Profile = () => {
     const [subscription, setSubscription] = useState(false);
 
     useEffect(() => {
-        // Fetch current user data
         api.get('/user/currentUser')
             .then(response => {
                 setUser(response.data.user);
@@ -140,8 +139,7 @@ const Profile = () => {
              </form>
             </div>
             </div>
-            <form class="p-6 space-y-4">
-                
+            <form class="p-6 space-y-4" onSubmit={handleProfileSubmit}>
             <div class="space-y-2">
                 <label
                 class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -186,12 +184,12 @@ const Profile = () => {
                 type="text" name="phoneNumber" value={user.phoneNumber || ''} onChange={handleInputChange}
                 />
             </div>
-            
+            </form>
 
             <div class="space-y-2">
             <button type="submit" className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full'>Actualizar Perfil</button>
             </div>
-        </form>
+
         </div>
         </div>
         </main>
