@@ -71,13 +71,14 @@ const SendMessageForm = () => {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <header className="px-4 md:px-6 border-b">
-        <div className="container max-w-6xl mx-auto flex items-center justify-between">
-          <Link className="flex items-center gap-2" to="/homePage">
-            <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
-            <span className="font-semibold text-lg">TechTips</span>
-          </Link>
-        </div>
-      </header>
+          <div className="mx-auto flex items-center justify-between">
+            <Link className="flex items-center gap-2" to="/homePage">
+              <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
+            </Link>
+            <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12 cursor-pointer'/>
+
+          </div>
+        </header>
       <main className="flex-1 py-12 md:py-16 lg:py-20">
         <div className="container max-w-6xl mx-auto px-4 md:px-6">
           <div className="center-container">
@@ -175,7 +176,6 @@ const SendMessageForm = () => {
           </div>
         </div>
       </main>
-
     </div>
   );
 };

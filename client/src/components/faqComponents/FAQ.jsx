@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './FAQ.css';
 import '../pageStyles/NavbarComponents.css';
+import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -52,14 +53,15 @@ const FAQ = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 md:px-6 py-4 border-b">
-        <div className="container max-w-6xl mx-auto flex items-center justify-between">
-          <a className="flex items-center gap-2" href="#" rel="ugc">
-            <img src="/imagenes/wally.png" alt="Logo Wally" className="w-20 h-20" />
-            <span className="font-semibold text-lg">TechTips</span>
-          </a>
-        </div>
-      </header>
+      <header className="px-4 md:px-6 border-b">
+          <div className="mx-auto flex items-center justify-between">
+            <Link className="flex items-center gap-2" to="/homePage">
+              <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
+            </Link>
+            <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12 cursor-pointer'/>
+
+          </div>
+        </header>
       <main className="flex-1 py-8">
         <div className="container max-w-6xl mx-auto px-4 md:px-6">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 lg:mb-10">

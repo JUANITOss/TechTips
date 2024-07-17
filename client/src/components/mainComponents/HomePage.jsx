@@ -30,7 +30,7 @@ const HomePage = () => {
     return (
       <div className="flex flex-col min-h-[100dvh] bg-background">
         <header className="px-4 md:px-6 border-b">
-          <div className="container max-w-6xl mx-auto flex items-center justify-between">
+          <div className="mx-auto flex items-center justify-between">
             <Link className="flex items-center gap-2 cursor-pointer" to="/homePage">
               <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20 cursor-pointer'/>
               <span className="font-semibold text-lg">TechTips</span>

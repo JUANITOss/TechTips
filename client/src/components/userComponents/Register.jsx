@@ -180,7 +180,7 @@ const Register = () => {
     </form>
     <div class="mt-4 text-center text-sm">
       ¿Ya tienes una cuenta?{" "}
-      <Link class="underline" to="/login">
+      <Link class="underline" to="/">
         Iniciar Sesión
       </Link>
     </div>
