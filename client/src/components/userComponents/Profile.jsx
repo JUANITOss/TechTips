@@ -10,6 +10,7 @@ const Profile = () => {
     const [subscription, setSubscription] = useState(false);
 
     useEffect(() => {
+        // Fetch current user data
         api.get('/user/currentUser')
             .then(response => {
                 setUser(response.data.user);
@@ -88,9 +89,10 @@ const Profile = () => {
         <header className="px-4 md:px-6 border-b">
           <div className="container max-w-6xl mx-auto flex items-center justify-between">
             <Link className="flex items-center gap-2" to="/homePage">
-              <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
-              <span className="font-semibold text-lg">TechTips</span>
+              <img src="/imagenes/left_arrow.png" alt="Back" className='w-12 h-12'/>
             </Link>
+            <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12 cursor-pointer'/>
+
           </div>
         </header>
         <main>
@@ -140,7 +142,8 @@ const Profile = () => {
              </form>
             </div>
             </div>
-            <form class="p-6 space-y-4" onSubmit={handleProfileSubmit}>
+
+            <form class="p-6 space-y-4">    
             <div class="space-y-2">
                 <label
                 class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -185,12 +188,12 @@ const Profile = () => {
                 type="text" name="phoneNumber" value={user.phoneNumber || ''} onChange={handleInputChange}
                 />
             </div>
-            </form>
+            
 
             <div class="space-y-2">
             <button type="submit" className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full'>Actualizar Perfil</button>
             </div>
-
+        </form>
         </div>
         </div>
         </main>

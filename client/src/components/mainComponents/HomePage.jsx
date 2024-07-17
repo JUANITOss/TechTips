@@ -38,7 +38,7 @@ const HomePage = () => {
             <img 
                     src={`http://localhost:5000/uploads/${user.profilePicture}`} 
                     alt="Profile" 
-                    className="w-12 h-12 rounded-full" 
+                    className="w-12 h-12 rounded-full cursor-pointer" 
                     onClick={() => navigate('/editProfile')}
                 />
           </div>
