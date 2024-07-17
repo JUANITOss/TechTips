@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import api from '../../api';
-import './Profile.css';
 import '../pageStyles/NavbarComponents.css';
 import { Link, Navigate } from 'react-router-dom';
 
@@ -90,13 +89,14 @@ const Profile = () => {
     return (
         <div className="flex flex-col min-h-[100dvh] bg-background">
             <header className="px-4 md:px-6 border-b">
-                <div className="container max-w-6xl mx-auto flex items-center justify-between">
-                    <Link className="flex items-center gap-2" to="/homePage">
-                        <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
-                        <span className="font-semibold text-lg">TechTips</span>
-                    </Link>
-                </div>
-            </header>
+          <div className="mx-auto flex items-center justify-between">
+            <Link className="flex items-center gap-2" to="/homePage">
+              <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
+            </Link>
+            <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12 cursor-pointer'/>
+
+          </div>
+        </header>
             <main>
                 <div className="w-full max-w-md mx-auto">
                     <div className="bg-background rounded-lg shadow-lg overflow-hidden">
@@ -112,16 +112,12 @@ const Profile = () => {
                                     onClick={() => fileInputRef.current.click()}
                                 >
                                     <a className="group relative" href="#">
-                                        <img 
+
+                                            <img 
                                             src={`http://localhost:5000/uploads/${user.profilePicture}`} 
                                             alt="Profile" 
-                                            className="w-20 h-20 rounded-full border-4 border-purple-600"
-                                        />
-                                        <div
-                                            className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-purple-600/60 to-transparent flex justify-center items-center text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100 pb-4"
-                                        >
-                                            Change
-                                        </div>
+                                            className="w-20 h-20 rounded-full"
+                                          />                      
                                     </a>
                                 </div>
 
