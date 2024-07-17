@@ -68,14 +68,14 @@ const Register = () => {
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background">
         <header className="px-4 md:px-6 border-b">
-          <div className="container max-w-6xl mx-auto flex items-center justify-between">
+          <div className="container max-w-6xl mx-auto flex items-center justify-center ">
             <Link className="flex items-center gap-2" to="/homePage">
-              <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
+              <img src="/imagenes/wally.png" alt="Logo Wally" className='w-10 h-10'/>
               <span className="font-semibold text-lg">TechTips</span>
             </Link>
           </div>
         </header>
-<div className="mx-auto max-w-[400px] space-y-6">
+<div className="mx-auto max-w-[400px] space-y-6 mt-6">
   <div className="space-y-2 text-center">
     <h1 className="text-3xl font-bold text-black">Registrarse</h1>
     <p className="text-gray-500 dark:text-gray-400">Crea tu cuenta para empezar</p>
@@ -180,7 +180,7 @@ const Register = () => {
     </form>
     <div class="mt-4 text-center text-sm">
       ¿Ya tienes una cuenta?{" "}
-      <Link class="underline" to="/">
+      <Link class="underline" to="/login">
         Iniciar Sesión
       </Link>
     </div>

@@ -10,6 +10,9 @@ import VideoTutorials from './components/tutorialComponents/VideoTutorials';
 import Chatbot from './components/chatbotComponents/Chatbot';
 import NotFound from './components/errorComponents/NotFound';
 import SendMessageForm from './components/connectionSystemComponents/SendMessageForm';
+import LandingPage from './components/mainComponents/LandingPage';
+
+
 import './index.css';
 
 function App() {
@@ -18,7 +21,8 @@ function App() {
       <div className='App'>
         <Routes>
           
-          <Route path="/" element={<Login/>} />
+          <Route path="/" element={<LandingPage/>} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/editProfile" element={<Profile/>} />
 
