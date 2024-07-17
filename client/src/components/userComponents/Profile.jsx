@@ -93,8 +93,9 @@ const Profile = () => {
             <Link className="flex items-center gap-2" to="/homePage">
               <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
             </Link>
-            <button
-              
+            <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12'/>
+            {/* <button
+              onClick={handleLogout}
               class="group flex items-center justify-start w-8 h-8 bg-transparent hover:bg-violet-700 rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-lg active:translate-x-1 active:translate-y-1"
             >
               <div
@@ -112,7 +113,7 @@ const Profile = () => {
               >
                 Logout
               </div>
-            </button>
+            </button> */}
 
           </div>
         </header>
