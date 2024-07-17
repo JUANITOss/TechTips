@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import './PostForm.css';
+import './PostSystem.css';
 const PostForm = ({ post, onSubmit }) => {
   const [title, setTitle] = useState(post ? post.title : '');
   const [content, setContent] = useState(post ? post.content : '');
@@ -28,7 +29,7 @@ const PostForm = ({ post, onSubmit }) => {
         placeholder="Content"
         required
       />
-      <button type="submit">Submit</button>
+      <button id='button-post-accept' type="submit">Submit</button>
     </form>
   );
 };

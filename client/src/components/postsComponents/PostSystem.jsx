@@ -4,7 +4,6 @@ import PostForm from './PostForm';
 import StarRating from './StarRating';
 import './PostSystem.css';
 import '../pageStyles/NavbarComponents.css';
-import { Link } from 'react-router-dom';
 
 const PostSystem = () => {
     const [posts, setPosts] = useState([]);
@@ -100,11 +99,15 @@ const PostSystem = () => {
 
     return (
         <div className="post-system-container">
-            <div className="navbar-forum">
 
-                <a className="navbar-left-backwards-arrow" href="/homePage"><img className='arrow-image-backwards-1' src="/imagenes/left_arrow.png" alt="" /></a>
-                <h1 className="navbar-title">Bienvenido al foro</h1>
-                <button className="create-post-button" onClick={() => setShowCreateForm(!showCreateForm)}>
+            <div id="navbar-forum">
+
+                <a id="navbar-left-backwards-arrow" href="/homePage">
+                    <img className='arrow-image-backwards-1' src="/imagenes/left_arrow.png" alt="HOLA" />
+                </a>
+
+                <h1 id="navbar-title">Bienvenido al foro</h1>
+                <div id="create-post-button" onClick={() => setShowCreateForm(!showCreateForm)}>
                     {showCreateForm ? 
                         <svg className="add-post-svg" fill="gray" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M17,15.6L15.6,17L12,13.4L8.4,17L7,15.6l3.6-3.6L7,8.4L8.4,7l3.6,3.6L15.6,7L17,8.4L13.4,12L17,15.6z"></path>
@@ -114,7 +117,8 @@ const PostSystem = () => {
                             <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M17,13h-4v4h-2v-4H7v-2h4V7h2v4h4V13z"></path>
                         </svg>
                     }
-                </button>
+                </div>
+
                 {showCreateForm && (
                     <div className="modal">
                         <div className="modal-content">
@@ -132,6 +136,7 @@ const PostSystem = () => {
                         </div>  
                     </div>
                 )}
+
             </div>
 
             <main>
@@ -164,7 +169,7 @@ const PostSystem = () => {
                                 </div>
                                 {userId && post.createdBy === userId && (
                                     <div className="post-buttons">
-                                        <button className="button-post" onClick={() => handleEditClick(post)}>Editar</button>
+                                        <button className="button-post accept-button-post" onClick={() => handleEditClick(post)}>Editar</button>
                                         <button className="button-post cancel-button-post" onClick={() => handleDeletePost(post._id)}>Borrar</button>
                                     </div>
                                 )}
