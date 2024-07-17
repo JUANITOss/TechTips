@@ -6,10 +6,24 @@ export default function Landing() {
     <>
       <header className="px-4 md:px-6 border-b ">
           <div className="mx-auto flex justify-end gap-4 ">
-              <Link to='/register'><button>Registrarse</button></Link>
-              <Link to='/login'><button>Ingresar</button></Link>
+              <Link to='/register' className="flex items-center py-4 px-6 gap-2">
+                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full">
+                  Registrarse
+                </button>
+              </Link>
+              <Link to='/login' className="flex items-center py-4 px-6 gap-2">
+                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full">
+                  Ingresar
+                </button>
+              </Link>
+              
           </div>
+        
+          
       </header>
+      
+                          
+                                
 
       <main>
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center"
@@ -55,14 +69,15 @@ export default function Landing() {
           </div>
         </div>
 
-        <section className="pb-20 bg-gray-300 -mt-24">
+        <section className="pb-20 bg-violet-700 -mt-24">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg hover:-translate-y-2 duration-300">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-20 h-20 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
+                      <img src="/imagenes/wally.png" alt="Logo Wally" className='w-22 h-22 flex h-full w-full items-center justify-center rounded-full bg-muted'/>
                     </div>
                     <h6 className="text-xl font-semibold">Aprende de manera facil</h6>
                     <p className="mt-2 mb-4 text-gray-600">
@@ -73,10 +88,11 @@ export default function Landing() {
               </div>
 
               <div className="w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg hover:-translate-y-2 duration-300">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-20 h-20 mb-5 shadow-lg rounded-full bg-blue-400">
                       <i className="fas fa-retweet"></i>
+                      <img src="/imagenes/videos_tutoriales.png" alt="Logo Wally" className='w-22 h-22 flex h-full w-full items-center justify-center rounded-full bg-muted'/>
                     </div>
                     <h6 className="text-xl font-semibold">
                       Modalidad Gratis 
@@ -89,10 +105,11 @@ export default function Landing() {
               </div>
 
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg hover:-translate-y-2 duration-300">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-20 h-20 mb-5 shadow-lg rounded-full bg-green-400">
                       <i className="fas fa-fingerprint"></i>
+                      <img src="/imagenes/basura_inutil.png" alt="Logo Wally" className='w-22 h-22 flex h-full w-full items-center justify-center rounded-full bg-muted'/>
                     </div>
                     <h6 className="text-xl font-semibold">
                       Compromiso en ayudarte

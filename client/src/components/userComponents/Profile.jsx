@@ -91,17 +91,17 @@ const Profile = () => {
             <header className="px-4 md:px-6 border-b">
           <div className="mx-auto flex items-center justify-between">
             <Link className="flex items-center gap-2" to="/homePage">
-              <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
+              <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px] border hover:border-violet-700 rounded'/>
             </Link>
             <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12'/>
             {/* <button
               onClick={handleLogout}
-              class="group flex items-center justify-start w-8 h-8 bg-transparent hover:bg-violet-700 rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-lg active:translate-x-1 active:translate-y-1"
+              className="group flex items-center justify-start w-8 h-8 bg-transparent hover:bg-violet-700 rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-lg active:translate-x-1 active:translate-y-1"
             >
               <div
-                class="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3"
+                className="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3"
               >
-                <svg class="w-4 h-4" viewBox="0 0 512 512" fill="black">
+                <svg className="w-4 h-4" viewBox="0 0 512 512" fill="black">
                   <path
                     d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
                   ></path>
@@ -109,7 +109,7 @@ const Profile = () => {
               </div>
               <div
               
-                class="absolute right-5 transform translate-x-full opacity-0 text-black text-lg font-semibold transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                className="absolute right-5 transform translate-x-full opacity-0 text-black text-lg font-semibold transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
               >
                 Logout
               </div>
@@ -120,7 +120,7 @@ const Profile = () => {
             <main>
                 <div className="w-full max-w-md mx-auto">
                     <div className="bg-background rounded-lg shadow-lg overflow-hidden">
-                        <div className="bg-primary py-6 px-6">
+                        <div className="bg-primary py-6 px-6 pt-12">
                             <div className="flex items-center container max-w-6xl mx-auto flex items-center justify-between">
                                 <div>
                                     <h2 className="text-2xl font-bold text-primary-foreground">{`${user.name} ${user.surname}`}</h2>
@@ -198,7 +198,7 @@ const Profile = () => {
                                   <button type="submit">Actualizar Subscripción</button>
                               </form> */}
                             <div className="space-y-2">
-                                <button type="submit" className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full'>Actualizar Perfil</button>
+                                <button type="submit" className='inline-flex bg-violet-700/50 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full'>Actualizar Perfil</button>
                             </div>
                         </form>
                     </div>

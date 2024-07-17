@@ -74,7 +74,7 @@ const VideoTutorials = () => {
           
             <div className="mx-auto flex items-center justify-between">
                 <Link className="flex items-center gap-2" to="/homePage">
-                    <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px]'/>
+                    <img src="/imagenes/left_arrow.png" alt="Back" className='h-[20px] border hover:border-violet-700 rounded'/>
                 </Link>
                     <img src="/imagenes/wally.png" alt="Logo Wally" className='w-12 h-12 cursor-pointer'/>
 

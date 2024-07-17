@@ -36,13 +36,13 @@ const Login = () => {
     <div className="flex flex-col min-h-[100dvh] bg-background">
         <header className="px-4 md:px-6 border-b">
           <div className="container max-w-6xl mx-auto flex items-center justify-center">
-            <Link className="flex items-center gap-2" to="/homePage">
+            <div className="flex items-center gap-2">
               <img src="/imagenes/wally.png" alt="Logo Wally" className='w-10 h-10'/>
               <span className="font-semibold text-lg">TechTips</span>
-            </Link>
+            </div>
           </div>
         </header>
-    <div className="mx-auto max-w-[400px] space-y-6 mt-6">
+    <div className="mx-auto max-w-[400px] space-y-6 mt-12">
   <div className="space-y-2 text-center">
     <h1 className="text-3xl font-bold text-black">Iniciar Sesión</h1>
     <p className="text-gray-500 dark:text-gray-400">Inicia sesión para empezar</p>
@@ -75,9 +75,9 @@ const Login = () => {
         <button type="submit" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full">
           Iniciar Sesión
         </button>
-        <div class="mt-4 text-center text-sm">
+        <div className="mt-4 text-center text-sm">
           ¿Aún no tienes una cuenta?{" "}
-          <Link class="underline" to="/register">
+          <Link className="underline" to="/register">
             Registrate
           </Link>
         </div>

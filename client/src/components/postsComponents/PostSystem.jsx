@@ -103,7 +103,7 @@ const PostSystem = () => {
             <div id="navbar-forum">
 
                 <a id="navbar-left-backwards-arrow" href="/homePage">
-                    <img className='arrow-image-backwards-1' src="/imagenes/left_arrow.png" alt="HOLA" />
+                    <img className='h-[20px] border hover:border-violet-700 rounded' src="/imagenes/left_arrow.png" alt="HOLA" />
                 </a>
 
                 <h1 id="navbar-title">Bienvenido al foro</h1>

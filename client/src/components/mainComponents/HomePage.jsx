@@ -31,8 +31,8 @@ const HomePage = () => {
       <div className="flex flex-col min-h-[100dvh] bg-background">
         <header className="px-4 md:px-6 border-b">
           <div className="mx-auto flex items-center justify-between">
-            <Link className="flex items-center gap-2 cursor-pointer" to="/homePage">
-              <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20 cursor-pointer'/>
+            <Link className="flex items-center gap-2" to="/homePage">
+              <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
               <span className="font-semibold text-lg">TechTips</span>
             </Link>
             <img 
@@ -45,7 +45,13 @@ const HomePage = () => {
         </header>
         <main className="flex-1 py-12 md:py-16 lg:py-20">
           <div className="container max-w-6xl mx-auto px-4 md:px-6">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 lg:mb-10 text-black">
+          <div className="flex justify-center items-center">
+            <img className='rounded-full object-cover h-90 w-90 -mb-64 -mt-64'
+              src='/imagenes/17.png' alt='Logo TechTips'
+            />
+           </div>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mt-16 mb-6 md:mb-8 lg:mb-10 text-black">
               ¿Como podemos ayudarte?
             </h1>
             <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-10 md:mb-12 lg:mb-14">
@@ -63,9 +69,9 @@ const HomePage = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="w-10 h-10 mb-4 text-primary group-hover:text-primary-foreground"
                 >
                   <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
@@ -86,9 +92,9 @@ const HomePage = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="w-10 h-10 mb-4 text-primary group-hover:text-primary-foreground"
                 >
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
@@ -112,9 +118,9 @@ const HomePage = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="w-10 h-10 mb-4 text-primary group-hover:text-primary-foreground"
                 >
                   <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
@@ -137,9 +143,9 @@ const HomePage = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="w-10 h-10 mb-4 text-primary group-hover:text-primary-foreground"
                 >
                   <path d="m8 2 1.88 1.88"></path>
