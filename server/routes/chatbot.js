@@ -4,10 +4,8 @@ const UserPrompts = require('../models/UserPrompts');
 const verifyAuth = require('../middleware/authMiddleware');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Inicializar la instancia de la IA generativa
-const genAI = new GoogleGenerativeAI('AIzaSyDJsdIl8ulGHR_urNpVmIXwEyvWmHeGQBw');  
+const genAI = new GoogleGenerativeAI('AIzaSyC5MNQ4b8Rbzvzpm0XbijKB75t42yS2TUQ');  
 
-// Endpoint para generar contenido
 router.post('/', verifyAuth, async (req, res) => {
   const { prompt } = req.body;
   const userId = req.session.userId;
@@ -16,20 +14,21 @@ router.post('/', verifyAuth, async (req, res) => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const result = await model.generateContentStream([prompt]);
 
-    // Capturar el texto generado
     let generatedText = '';
     for await (const chunk of result.stream) {
       generatedText += chunk.text();
     }
 
-    // Guardar el prompt en la base de datos
     let userPrompts = await UserPrompts.findOne({ userId: userId });
     
     if (!userPrompts) {
       userPrompts = new UserPrompts({ userId, prompts: [] });
     }
 
-    await userPrompts.addPrompt(prompt);
+    const addedPrompt = await userPrompts.addPrompt(prompt);
+    if (!addedPrompt) {
+      return res.status(500).json({ message: 'Error al agregar el prompt a la base de datos.' });
+    }
 
     res.json({ generatedText });
   } catch (error) {

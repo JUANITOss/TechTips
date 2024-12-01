@@ -5,12 +5,20 @@ const promptSchema = new mongoose.Schema({
   prompts: [{ type: String, required: true }]
 }, { timestamps: true });
 
-promptSchema.methods.addPrompt = function(prompt) {
-  if (this.prompts.length >= 5) {
-    this.prompts.shift();
+promptSchema.methods.addPrompt = async function(prompt) {
+  try {
+    if (this.prompts.length >= 5) {
+      this.prompts.shift();
+    }
+    
+    this.prompts.push(prompt);
+
+    await this.save();
+    return true;  
+  } catch (error) {
+    console.error('Error al agregar el prompt:', error);
+    throw new Error('Error al guardar el prompt');
   }
-  this.prompts.push(prompt);
-  return this.save();
 };
 
 const UserPrompts = mongoose.model('UserPrompts', promptSchema);

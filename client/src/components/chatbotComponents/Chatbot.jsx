@@ -109,39 +109,7 @@ const Chatbot = () => {
                 </div>
                 </div>
             </main>
-        
-        
     );
 };
-
-{/* <div className="bg-background px-6 py-4 border-t">
-    <div className="relative">
-      <form onSubmit={handleSubmit}>
-        className="flex min-h-[80px] w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pr-16 rounded-lg resize-none"
-        placeholder="Type your message..."
-      <button
-        className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 absolute top-1/2 -translate-y-1/2 right-2"
-        type="submit"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          className="w-5 h-5"
-        >
-          <path d="m22 2-7 20-4-9-9-4Z"></path>
-          <path d="M22 2 11 13"></path>
-        </svg>
-        <span className="sr-only">Send</span>
-      </button>
-      </form>
-    </div>
-  </div> */}
 
 export default Chatbot;
