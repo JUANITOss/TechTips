@@ -7,7 +7,12 @@ Linkear Documentación o agregarla al repositorio como pdf
 
 # Para incializar proyecto
 
-! TENER MONGODB INSTALADO Y CORRIENDO
+! TENER MONGODB INSTALADO Y CORRIENDO 
+
+```
+    sudo systemctl start mongod
+```
+
 ! ALGUNAS DEPENDENCIAS EXTRA A INSTALAR SE PUEDEN LLEGAR A SOLICITAR
 
 ## Backend
@@ -17,7 +22,7 @@ Linkear Documentación o agregarla al repositorio como pdf
     node server.js
 ```
 
-## Frontend 
+## Frontend
 
 ```
     cd client/

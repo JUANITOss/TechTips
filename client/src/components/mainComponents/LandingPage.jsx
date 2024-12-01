@@ -1,73 +1,87 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Landing() {
+  const images = [
+    "http://www.abuelosmodernos.com/example/slider01.jpg",
+    "http://www.abuelosmodernos.com/example/slider02.jpg",
+    "http://www.abuelosmodernos.com/example/slider03.jpg",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); 
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <>
-      <header className="px-4 md:px-6 border-b ">
-          <div className="mx-auto flex justify-end gap-4 ">
-              <Link to='/register' className="flex items-center py-4 px-6 gap-2">
-                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full">
-                  Registrarse
-                </button>
-              </Link>
-              <Link to='/login' className="flex items-center py-4 px-6 gap-2">
-                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-violet-700 h-10 px-4 py-2 w-full">
-                  Ingresar
-                </button>
-              </Link>
-              
-          </div>
-        
-          
-      </header>
-      
-                          
-                                
+
+    <header className="fixed top-0 left-0 w-full px-4 md:px-6 z-10">
+      <div className="mx-auto flex items-center justify-between gap-4 bg-transparent backdrop-blur-md">
+
+        {/* Logotipo */}
+        <div className="flex items-center">
+          <img
+            src="/imagenes/15.png" // Ruta relativa a la carpeta public
+            alt="Logo"
+            className="h-20 w-35 rounded-full"
+          />
+        </div>
+
+        {/* Texto centrado
+        <div className="flex-grow text-center ml-44">  
+          <h1 className="text-white font-bold text-3xl">TechTips</h1> 
+        </div> */}
+
+        {/* Botones */}
+        <div className="flex justify-end gap-4">
+          <Link to="/register" className="flex items-center py-4 px-6 gap-2">
+            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 bg-cyan-500 hover:bg-white hover:text-cyan-500 h-12 px-6 py-3">
+              Registrarse
+            </button>
+          </Link>
+          <Link to="/login" className="flex items-center py-4 px-6 gap-2">
+            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 bg-cyan-500 hover:bg-white hover:text-cyan-500 h-12 px-6 py-3">
+              Ingresar
+            </button>
+          </Link>
+        </div>
+      </div>
+
+    </header>
 
       <main>
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center"
-            style={{
-              minHeight: "75vh"
-            }}>
-          <div className="absolute top-0 w-full h-full bg-center bg-cover"
-              style={{
-                backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/1200px-A_black_image.jpg')"
-              }}>
-            <span id="blackOverlay" className="w-full h-full absolute opacity-75 bg-black"></span>
-          </div>
-          <div className="container relative mx-auto">
-              <div className="items-center flex flex-wrap">
-                <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                  <div className="pr-12">
-                    <h1 className="text-white font-semibold text-5xl">
-                      Tu camino a la tecnologia comienza aqui
-                    </h1>
-                  </div>
-                </div>
-
-              </div>
-          </div>
+      <div
+          className="relative pt-16 pb-32 flex content-center items-center justify-center"
+          style={{
+            minHeight: "75vh",
+          }}
+        >
           <div
-            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
-            style={{ height: "70px" }}
+            className="absolute top-0 w-full h-full bg-center bg-cover transition-all duration-1000"
+            style={{
+              backgroundImage: `url(${images[currentIndex]})`,
+            }}
           >
-            <svg
-              className="absolute bottom-0 overflow-hidden"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              version="1.1"
-              viewBox="0 0 2560 100"
-              x="0"
-              y="0"
-            >
-              <polygon
-                className="text-gray-300 fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
-            </svg>
+            <span
+              id="blackOverlay"
+              className="w-full h-full absolute opacity-75 bg-black"
+            ></span>
           </div>
-        </div>
+
+          <div className="container relative mx-auto">
+              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                  <h1 className="text-white font-bold text-5xl font-playfair">
+                    Conectando generaciones, empoderando mentes.
+                  </h1>
+              </div>
+            </div>
+          </div>
 
         <section className="pb-20 bg-violet-700 -mt-24">
           <div className="container mx-auto px-4">
@@ -79,9 +93,9 @@ export default function Landing() {
                       <i className="fas fa-award"></i>
                       <img src="/imagenes/wally.png" alt="Logo Wally" className='w-22 h-22 flex h-full w-full items-center justify-center rounded-full bg-muted'/>
                     </div>
-                    <h6 className="text-xl font-semibold">Aprende de manera facil</h6>
+                    <h6 className="text-xl font-semibold">Totalmente Gratis </h6>
                     <p className="mt-2 mb-4 text-gray-600">
-                        Videos explicativos, secciones para pedir ayuda, asistencia por ia 
+                    Contamos con un repertorio de utiles herramientas al alcance de tu mano
                     </p>
                   </div>
                 </div>
@@ -95,10 +109,10 @@ export default function Landing() {
                       <img src="/imagenes/videos_tutoriales.png" alt="Logo Wally" className='w-22 h-22 flex h-full w-full items-center justify-center rounded-full bg-muted'/>
                     </div>
                     <h6 className="text-xl font-semibold">
-                      Modalidad Gratis 
+                    Aprende de manera facil
                     </h6>
                     <p className="mt-2 mb-4 text-gray-600">
-                      Contamos con un repertorio de utiles herramientas al alcance de tu mano
+                      Videos explicativos, secciones para pedir ayuda, asistencia por IA 
                     </p>
                   </div>
                 </div>
@@ -115,7 +129,7 @@ export default function Landing() {
                       Compromiso en ayudarte
                     </h6>
                     <p className="mt-2 mb-4 text-gray-600">
-                      Cada vez habran mas y mejores funcionalidades para mejorar al maximo tu experiencia!
+                      ¡Cada vez habran más y mejores funcionalidades para mejorar al máximo tu experiencia!
                     </p>
                   </div>
                 </div>
