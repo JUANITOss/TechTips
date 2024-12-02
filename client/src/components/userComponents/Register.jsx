@@ -43,7 +43,11 @@ const Register = () => {
 
     const formDataToSend = new FormData();
     Object.keys(formData).forEach((key) => {
-      formDataToSend.append(key, formData[key]);
+      if (key === 'profilePicture') {
+        formDataToSend.append(key, formData[key]); // archivo
+      } else {
+        formDataToSend.append(key, formData[key]); // texto
+      }
     });
 
     try {
@@ -59,7 +63,11 @@ const Register = () => {
         window.location = "/homePage";
       }
     } catch (error) {
-      setErrorMessage('Error al registrar el usuario');
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data.message); // Mostrar mensaje de error detallado del backend
+      } else {
+        setErrorMessage('Error al registrar el usuario');
+      }
       console.error('Error al registrar el usuario', error);
     }
   };
@@ -82,40 +90,82 @@ const Register = () => {
         </div>
         
         <form className="space-y-6" onSubmit={handleSubmit}>
-          {['email', 'Usuario', 'Contraseña', 'Nombre', 'Apellido'].map((field) => (
-            <div key={field} className="space-y-2">
-              <label className="text-sm font-medium text-black">{field.charAt(0).toUpperCase() + field.slice(1)}</label>
-              <input
-                className="w-full h-10 px-4 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                type={field === 'password' ? 'password' : 'text'}
-                name={field}
-                value={formData[field]}
-                onChange={handleChange}
-                placeholder={`Ingrese ${field}`}
-                required
-              />
-            </div>
-          ))}
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-black">Email</label>
+            <input
+              className="w-full h-10 px-4 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              type="email"
+              name="email" // Nombre que espera el backend
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Ingrese email"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-black">Usuario</label>
+            <input
+              className="w-full h-10 px-4 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              type="text"
+              name="username" // Cambiar a "username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Ingrese usuario"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-black">Contraseña</label>
+            <input
+              className="w-full h-10 px-4 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              type="password"
+              name="password" // Cambiar a "password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Ingrese contraseña"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-black">Nombre</label>
+            <input
+              className="w-full h-10 px-4 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              type="text"
+              name="name" // Cambiar a "name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Ingrese nombre"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-black">Apellido</label>
+            <input
+              className="w-full h-10 px-4 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              type="text"
+              name="surname" // Cambiar a "surname"
+              value={formData.surname}
+              onChange={handleChange}
+              placeholder="Ingrese apellido"
+              required
+            />
+          </div>
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-black">Número de Teléfono</label>
-            <div className="relative mt-2 w-full flex">
-              <div className="absolute inset-y-0 left-3 my-auto h-6 flex items-center border-r pr-2">
-                <select className="text-sm outline-none rounded-lg h-full">
-                  <option>AR</option>
-                  <option>UY</option>
-                  <option>PY</option>
-                </select>
-              </div>
-              <input
-                type="text"
-                name="phoneNumber"
-                onChange={handleChange}
-                placeholder="+54 (555) 000-000"
-                className="w-full h-10 pl-[4.5rem] pr-3 py-2 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              name="phoneNumber" // Nombre esperado por el backend
+              value={formData.phoneNumber} // Usa formData para manejar el estado
+              onChange={handleChange}
+              placeholder="+54 (555) 000-000"
+              className="w-full h-10 pl-[4.5rem] pr-3 py-2 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
           </div>
 
           <div className="space-y-2">

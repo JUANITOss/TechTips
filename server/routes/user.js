@@ -31,20 +31,13 @@ const upload = multer({
     }
 });
 
-// Register
+// Registro de usuario
 router.post('/register', upload.single('profilePicture'), async (req, res) => {
-    const { email, username, password, name, surname, phoneNumber} = req.body;
-    const profilePicture = req.file ? req.file.filename : null;
+    const { email, username, password, name, surname, phoneNumber } = req.body;
+    const profilePicture = req.file ? req.file.path : null;
 
     try {
-        const existingUser = await User.findOne({ email });
-
-        if (existingUser) {
-            return res.status(400).json({ message: 'Email already exists' });
-        }
-
         const hashedPassword = await bcrypt.hash(password, 10);
-
         const newUser = new User({
             email,
             username,
@@ -53,20 +46,12 @@ router.post('/register', upload.single('profilePicture'), async (req, res) => {
             surname,
             phoneNumber,
             profilePicture,
-            subscription: false,
         });
 
         await newUser.save();
-
-        const user = await User.findOne({ email });
-
-        req.session.userId = user._id;
-        req.session.email = user.email;
-
-        res.status(201).json({ message: 'User registered successfully' });
-
-    } catch (error) {
-        res.status(500).json({ message: 'Error registering user', error });
+        res.status(201).send({ message: 'User registered successfully' });
+    } catch (err) {
+        res.status(500).send({ message: 'Error registering user' });
     }
 });
 

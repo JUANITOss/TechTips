@@ -14,7 +14,7 @@ const app = express();
 // Json y encode config
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // Cors config
 app.use(cors({
@@ -22,7 +22,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
-  optionsSuccessStatus: 204   
+  optionsSuccessStatus: 204
 }));
 
 // Files config
@@ -33,15 +33,20 @@ connectMongoDB();
 
 // Express sessions config
 app.use(session({
-    secret: "password",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false},
+  secret: "password",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false },
 }));
 
-// Ruta de testeo de verificacion
+// Ruta base para `/`
+app.get('/', (req, res) => {
+  res.send('Bienvenido al servidor de TechTips');
+});
+
+// Ruta de testeo de verificación
 app.get('/verifyUser', verifAuth, (req, res) => {
-    res.status(200).send(`ID del usuario: ${req.session.userId}, EMAIL: ${req.session.email}`);
+  res.status(200).send(`ID del usuario: ${req.session.userId}, EMAIL: ${req.session.email}`);
 });
 
 // Routing del proyecto
