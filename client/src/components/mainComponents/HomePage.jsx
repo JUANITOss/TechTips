@@ -35,28 +35,33 @@ const HomePage = () => {
               <img src="/imagenes/wally.png" alt="Logo Wally" className='w-20 h-20'/>
               <span className="font-semibold text-lg">TechTips</span>
             </Link>
-            <img 
+            <div className="flex items-center gap-4">
+                <img 
                     src={`http://localhost:5000/uploads/${user.profilePicture}`} 
                     alt="Profile" 
                     className="w-12 h-12 rounded-full cursor-pointer" 
                     onClick={() => navigate('/editProfile')}
                 />
+                <button
+                    onClick={handleLogout}
+                    className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+                >
+                    Logout
+                </button>
+            </div>
           </div>
         </header>
         <main className="flex-1 py-12 md:py-16 lg:py-20">
           <div className="container max-w-6xl mx-auto px-4 md:px-6">
-          <div className="flex justify-center items-center">
-            <img className='rounded-full object-cover h-90 w-90 -mb-64 -mt-64'
-              src='/imagenes/17.png' alt='Logo TechTips'
-            />
-           </div>
+            <div className="flex justify-center items-center">
+              <img className='rounded-full object-cover h-90 w-90 -mb-64 -mt-64'
+                src='/imagenes/17.png' alt='Logo TechTips'
+              />
+            </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mt-16 mb-6 md:mb-8 lg:mb-10 text-black">
               ¿Como podemos ayudarte?
             </h1>
-            <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-10 md:mb-12 lg:mb-14">
-            ‎ 
-            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
               <Link
                 className="bg-gray-200 w-48 h-64 border border-transparent hover:border-violet-700 hover:text-violet-700 hover:stroke-violet-700 rounded-lg p-6 flex flex-col items-center justify-center text-center"
